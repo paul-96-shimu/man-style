@@ -30,8 +30,8 @@ export default function Stay() {
 
 
                         <div className='mt-[40px] flex gap-[20px]'>
-                            <form className='bg-[#FFF] pt-[16px] pb-[16px] pr-[32px] pl-[32px] instrument-sans'>
-                                <input type="email" placeholder='Your Email Address' />
+                            <form className='bg-[#FFF] pt-[16px] pb-[16px] pr-[32px] pl-[32px] instrument-sans '>
+                                <input type="email" placeholder='Your Email Address' className='placeholder-[#D5C4B3] ' />
 
                             </form>
 
