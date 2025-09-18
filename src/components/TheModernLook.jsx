@@ -12,7 +12,7 @@ const TheModernLook = () => {
 
             <div className='container mx-auto '>
 
-                <div className='flex gap-[40px] '>
+                <div className='flex gap-[100px] '>
                     <div className='pt-[80px]  '>
                         <h4 className='text-[#AA8265] text-[20px] font-bold instrument-sans mb-[24px]'>TRENDING NOW</h4>
                         <h1 className='text -primary instrument-serif-regular text-[96px] leading-[100%]'> The Modern <br /> Look: <span className='text-[#AA8265]'>Double- <br />Breasted</span>
@@ -37,17 +37,25 @@ const TheModernLook = () => {
                 </div>
 
 
-                <div className='flex gap-[40px] mt-10'>
+                <div className='flex gap-[100px] mt-10 '>
 
 
 
 
 
-                    <div className='bg-neutral-200 '>
-                        <div className=''>
+                    <div className='bg-neutral-200  '>
+                        <div className='text-right pt-[10px]'>
 
-                            <small className='text- primary  font-bold bg-[#998b77] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
-                            <img src={blackpant} alt="" className='w-[700px] h-[723px]' />
+                            <div className='mt-[4px]'>
+
+                                <small className='text- primary   bg-[#E9E2D8] pl-[18px] pr-[18px]  instrument-sans text-[18px] font-bold'>30% Off</small>
+
+                            </div>
+
+                            <div>
+
+                                <img src={blackpant} alt="" className='w-[700px] h-[723px] ' />
+                            </div>
                         </div>
 
                     </div>
@@ -74,7 +82,7 @@ const TheModernLook = () => {
 
                             <div className=''>
                                 <span className='text- primary font-bold text-[32px] Instrument Sans mr-[8px] mt-[8px]'>$74.99</span>
-                            <span className='text-[#AA8265] text-[16px] font-semibold  Instrument Sans line-through'>$64.99</span>
+                                <span className='text-[#AA8265] text-[16px] font-semibold  Instrument Sans line-through'>$64.99</span>
                             </div>
                         </div>
 

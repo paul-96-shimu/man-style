@@ -1,7 +1,7 @@
 import React from 'react'
 
 import bgcover from '../assets/img/bg-black.png'
-import shoes from '../assets/img/shoes9999.png'
+import shoes from '../assets/img/shoessssss.png'
 
 
 export default function Stay() {
@@ -12,7 +12,7 @@ export default function Stay() {
             backgroundRepeat:"no-repeat",
             backgroundPosition: "center",
         }}
-            className="py-20"
+            className=""
         >
 
 
@@ -21,7 +21,7 @@ export default function Stay() {
 
                 <div className='flex justify-between'>
 
-                    <div>
+                    <div className='mt-[80px]'>
 
 
                         <h1 className='text-[#F6F4F0] text-[36px] font-bold tracking-[0.72px] instrument-sans'>STAY IN KNOW</h1>
@@ -43,9 +43,9 @@ export default function Stay() {
 
 
 
-                    <div>
+                    <div className=''>
 
-                        <img src={shoes} alt="" />
+                        <img src={shoes} alt="" className='w-[736px] h-[372px]' />
                     </div>
                 </div>
 

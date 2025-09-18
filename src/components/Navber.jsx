@@ -5,7 +5,7 @@ import search from '../assets/img/search.png'
 import favorite_border from '../assets/img/favorite_border.png'
 import shopping from '../assets/img/shopping_cart.png'
 import img from '../assets/img/more button.png'
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const Navber = () => {
     return (
@@ -43,6 +43,10 @@ const Navber = () => {
                         <img src={search} alt="" />
                         <img src={favorite_border} alt="" />
                         <img src={shopping} alt="" />
+
+
+                       <Link to='/register'> <button className='btn'>Register</button></Link>
+                        <Link to='/login'> <button className='btn'>Login </button></Link>
                     </div>
 
                 </div>

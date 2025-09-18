@@ -37,14 +37,9 @@ const Banner = () => {
 
                         <div className='flex items-center'>
 
-                            <img src={man} alt="" className='w-[750px] h-[500px]' />
+                            <img src={man} alt="" className='w-[711px] h-[500px] ' />
 
 
-                            <div className="">
-                            <p>
-                             Premium Double-Breasted Tailored Blazer 
-                            </p>
-                        </div>
                         </div>
 
                     </div>
@@ -53,10 +48,10 @@ const Banner = () => {
                     <div>
 
 
-                        <div className="absolute right-10 bottom-60 flex   items-center"
-                            style={{ transform: "translate(100%, 0%)" }}>
+                        <div className=" "
+                        >
                             {/* Social icons */}
-                            <ul className="flex flex-col gap-[56px]">
+                            <ul className="flex flex-col items-end gap-[56px]">
                                 <li><a href=""><img src={fb} alt="Facebook" className='w-[24px]' /></a></li>
                                 <li><a href=""><img src={insta} alt="Instagram" className='w-[24px]' /></a></li>
                                 <li><a href=""><img src={tiktalk} alt="Tiktok" className='w-[24px]' /></a></li>
@@ -65,9 +60,22 @@ const Banner = () => {
                             </ul>
 
 
+
+                            <div className="text-white py-30 pr-100  text-right">
+
+                                <small className='text-[#B0B0B0]'>Outerwear</small>
+                                <p >
+                                    Premium Double-Breasted <br />Tailored Blazer
+                                </p>
+                            </div>
+
+
                         </div>
 
-                        <img src={callcenter} alt="" />
+                        <div className='text-right '>
+
+                            <img src={callcenter} alt="" className='inline-flex bg-[#AA8265] pt-[16px] p-[16px] mb-[80px] rounded-2xl' />
+                        </div>
                     </div>
 
                     {/* Text */}

@@ -32,7 +32,7 @@ const TopPicks = () => {
                 <div className="mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-[42px]">
                     {/* Card 1 */}
                     <div>
-                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                        <div className="bg-neutral-100  pt-4 pl-4 pr-4">
                             <div className="flex justify-between items-center mb-2">
                                 <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
                                     30% Off
@@ -64,7 +64,7 @@ const TopPicks = () => {
 
                     {/* Card 2 */}
                     <div>
-                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                        <div className="bg-neutral-100 pt-4 pl-4 pr-4">
                             <div className="flex justify-end mb-2">
                                 <img
                                     src={pluse}
@@ -92,7 +92,7 @@ const TopPicks = () => {
 
                     {/* Card 3 */}
                     <div>
-                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                        <div className="bg-neutral-100 pt-4 pl-4 pr-4">
                             <div className="flex justify-end mb-2">
                                 <img
                                     src={pluse}
@@ -117,7 +117,7 @@ const TopPicks = () => {
 
                     {/* Card 4 */}
                     <div>
-                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                        <div className="bg-neutral-100   pt-4 pl-4 pr-4">
                             <div className="flex justify-end mb-2">
                                 <img
                                     src={pluse}
@@ -154,7 +154,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4  '>
                             <div className='flex justify-end items-center'>
 
 
@@ -173,7 +173,7 @@ const TopPicks = () => {
 
                             <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Ultra-Soft Black Wool and <br /> Cashmere Blend Scarf with Fringe</h6>
 
-                            <small className='text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block'>Accessories</small>
+                            <small className='text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2'>Accessories</small>
                             <br />
                             <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$54.99</span>
                             {/* <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span> */}
@@ -184,12 +184,12 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pl-4 pr-4 '>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4  '>
 
 
-                            <div className='flex justify-between items-center pt-2'>
+                            <div className='flex justify-between items-center mb-2'>
 
-                                <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
+                                <small className='text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans'>30% Off</small>
                                 <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
 
                                 />
@@ -214,7 +214,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4 '>
 
 
                             <div className='flex justify-end'>
@@ -242,7 +242,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4 '>
 
                             <div className='flex justify-between'>
 
@@ -282,7 +282,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
                             <div className='flex justify-between items-center'>
 
                                 <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
@@ -307,7 +307,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
+                        <div className='bg-neutral-100 pt-4 pl-4 pr-4'>
 
 
                             <div className='flex justify-end pt-2'>
@@ -337,7 +337,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
 
 
                             <div className='flex justify-end'>
@@ -365,7 +365,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4 '>
+                        <div className='bg-neutral-100  pt-4 pl-4 pr-4  '>
 
                             <div className='flex justify-end'>
 
@@ -382,9 +382,9 @@ const TopPicks = () => {
 
                         <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Modern Charcoal Grey Double- <br />Breasted Wool Suit Blazer </h6>
 
-                        <small className='text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block'>Outerwear</small>
+                        <small className='text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 '>Outerwear</small>
                         <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$99.99</span>
+                        <span className='text- primary font-bold text-[24px] Instrument Sans '>$99.99</span>
 
                     </div>
                 </div>
