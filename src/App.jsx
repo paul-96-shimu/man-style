@@ -1,7 +1,8 @@
 
 import './App.css'
-import Banner from './components/Banner'
 import LetCostumer from './components/LetCostumer'
+import Banner from './components/Banner'
+
 import Navber from './components/Navber'
 import Shop from './components/Shop'
 import ShopCategory from './components/ShopCategory'
@@ -9,6 +10,7 @@ import Stay from './components/Stay'
 import TheModernLook from './components/TheModernLook'
 import TopPicks from './components/TopPicks'
 import WintwerSale from './components/WintwerSale'
+import Footer from './components/Footer'
 
 function App() {
   
@@ -23,9 +25,12 @@ function App() {
     <TopPicks></TopPicks>
     <WintwerSale></WintwerSale>
     <LetCostumer></LetCostumer>
+    <LetCostumer>  </LetCostumer>
     <TheModernLook></TheModernLook>
     <Stay></Stay>
-     
+
+    <Footer></Footer>
+
     </>
   )
 }

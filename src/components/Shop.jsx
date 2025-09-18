@@ -2,12 +2,12 @@ import React from 'react';
 
 
 import viewmore from '../assets/img/view more button.png'
-import man2 from '../assets/img/man2.png'
-import man3 from '../assets/img/man3 (1).png'
-import man4 from '../assets/img/man34(2).png'
+import man2 from '../assets/img/smartman.png'
+import man3 from '../assets/img/formal man.png'
+import man4 from '../assets/img/formal pant.png'
 import cap from '../assets/img/cap.png'
-import half from '../assets/img/half.png'
-import jacket from '../assets/img/jacket.png'
+import half from '../assets/img/underware.png'
+import jacket from '../assets/img/brown jacket.png'
 import shoes from '../assets/img/shoes.png'
 import textcontent from '../assets/img/textcontent.png'
 
@@ -26,18 +26,32 @@ const Shop = () => {
 
                 </div>
 
-                <div className='flex gap-[40px] items-center   mt-[40px]'>
-                    <div className=''>
-                        <h4>Suits & Formal Wear</h4>
-                        <img src={man2} alt="" className='w-[775px]' />
-                        <h5 className='flex gap-[8px] text-[#5B3E38] mt-[16px] font-bold'>Suits (Formal & Casual) <img src={textcontent} alt="" className='' /> Tuxedo<img src={textcontent} alt="" /> Waistcoats</h5>
+                <div className='flex gap-[40px]'>
+                    <div>
+                        <div className='flex mt-[40px] pt-[30px] pl-[39px] bg-[#c9c2bd] '>
+
+                            <div>
 
 
+                                <h4 className='instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>Suits & <br /> Formal <br /> Wear</h4>
+                                <img src={man2} alt="" className='' />
+                            </div>
+
+
+                        </div>
+
+
+                        <div>
+
+                            <h5 className='flex gap-[8px] text-[#5B3E38] mt-[16px] font-bold'>Suits (Formal & Casual) <img src={textcontent} alt="" className='' /> Tuxedo<img src={textcontent} alt="" /> Waistcoats</h5>
+                        </div>
                     </div>
 
 
+
+
                     <div className=''>
-                        <div className='flex items-center '>
+                        <div className='flex'>
 
 
                             <div>

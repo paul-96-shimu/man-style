@@ -5,6 +5,7 @@ import search from '../assets/img/search.png'
 import favorite_border from '../assets/img/favorite_border.png'
 import shopping from '../assets/img/shopping_cart.png'
 import img from '../assets/img/more button.png'
+import { NavLink } from 'react-router';
 
 const Navber = () => {
     return (
@@ -14,11 +15,13 @@ const Navber = () => {
                 <div className='flex justify-between'>
                     <ul className='flex gap-10'>
 
-                        <li className='text-[#B0B0B0] text-[16px]'>HOME</li>
-                        <li className='text-[#B0B0B0] text-[16px]'>SHOP</li>
-                        <li className='text-[#B0B0B0] text-[16px]
-                  '>CONTACT US</li>
+                        <NavLink to="/"> <li className='text-[#B0B0B0] text-[16px]'>HOME</li></NavLink>
+                        <NavLink to="shop"> <li className='text-[#B0B0B0] text-[16px]'>SHOP</li></NavLink>
 
+
+                        <NavLink to="contact"> <li className='text-[#B0B0B0] text-[16px]'>CONTACT US</li>   </NavLink>
+
+               
                     </ul>
 
                     <div className='flex gap-[180px]'>

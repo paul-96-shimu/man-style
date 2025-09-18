@@ -8,7 +8,8 @@ export default function Stay() {
     return (
         <section style={{
             backgroundImage: `url(${bgcover})`,
-            backgroundSize: "cover",
+             backgroundSize: "2200px",
+            backgroundRepeat:"no-repeat",
             backgroundPosition: "center",
         }}
             className="py-20"

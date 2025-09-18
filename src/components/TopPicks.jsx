@@ -28,121 +28,119 @@ const TopPicks = () => {
 
                 <h1 className='text- primary text-[36px] font-bold instrument-sans'>TOP PICKS FOR YOU</h1>
 
-                <div className='mt-[40px] flex gap-[42px]'>
-
-                    {/* card section part-1 */}
-
-                    {/* card 1 */}
-
+                {/* Section 1 */}
+                <div className="mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-[42px]">
+                    {/* Card 1 */}
                     <div>
-
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
-                            <div className='flex justify-between items-center'>
-
-                                <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                            <div className="flex justify-between items-center mb-2">
+                                <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
+                                    30% Off
+                                </small>
+                                <img
+                                    src={pluse}
+                                    alt=""
+                                    className="w-6 border border-[#E9E2D8] p-1"
                                 />
                             </div>
-
-                            <img src={whiteshirt} alt="" />
-
-
+                            <img src={whiteshirt} alt="" className="mx-auto" />
                         </div>
+                        <div className="mt-2 p-2 sm:p-1 md:p-1">
+                            <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
+                                Classic White Tailored Oxford Shirt <br /> with Reinforced Collar
+                            </h6>
+                            <small className="text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block">
+                                Shirts
+                            </small>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Classic White Tailored Oxford Shirt  <br />with Reinforced Collar</h6>
-
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Shirts</small>
-                        <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$64.99</span> 
-                        <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans line-through'>$64.99</span>
+                            <span className="text-[#5B3E38] font-bold text-lg sm:text-xl md:text-[24px] mr-2">
+                                $64.99
+                            </span>
+                            <span className="text-[#6D6D6D] text-sm sm:text-base md:text-[16px] font-semibold line-through">
+                                $89.99
+                            </span>
+                        </div>
                     </div>
 
-                    {/* card 2 */}
-
+                    {/* Card 2 */}
                     <div>
-
-                        <div className='bg-neutral-100  pl-4 pr-4 '>
-
-
-                            <div className='flex justify-end pt-2'>
-
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                            <div className="flex justify-end mb-2">
+                                <img
+                                    src={pluse}
+                                    alt=""
+                                    className="w-6 border border-[#E9E2D8] p-1"
                                 />
                             </div>
-
-
-                            <img src={pant} alt="" className='' />
-
-
+                            <img src={pant} alt="" className="mx-auto" />
                         </div>
-
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Slim Fit Sandstone Chino Pants <br /> with Stretch Comfort Fabric</h6>
-
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Trousers</small>
-                        <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$64.99</span> <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span>
+                        <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
+                            Slim Fit Sandstone Chino Pants <br /> with Stretch Comfort Fabric
+                        </h6>
+                        <small className="text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block">
+                            Trousers
+                        </small>
+                        <div className="mt-2">
+                            <span className="text-[#5B3E38] font-bold text-lg sm:text-xl md:text-[24px] mr-2">
+                                $74.99
+                            </span>
+                            <span className="text-[#6D6D6D] text-sm sm:text-base md:text-[16px] font-semibold line-through">
+                                $99.99
+                            </span>
+                        </div>
                     </div>
 
-
-                    {/* card-3 */}
-
+                    {/* Card 3 */}
                     <div>
-
-                        <div className='bg-neutral-100 pt-4 pl-4 pr-4'>
-
-
-                            <div className='flex justify-end'>
-
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                            <div className="flex justify-end mb-2">
+                                <img
+                                    src={pluse}
+                                    alt=""
+                                    className="w-6 border border-[#E9E2D8] p-1"
                                 />
                             </div>
-
-                            <img src={brown} alt="" />
-
-
+                            <img src={brown} alt="" className="mx-auto" />
                         </div>
-
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Premium Brown Double-Breasted <br /> Tailored Blazer</h6>
-
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Outerwears</small>
-                        <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$149.99</span>
-
+                        <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
+                            Premium Brown Double-Breasted <br /> Tailored Blazer
+                        </h6>
+                        <small className="text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block">
+                            Outerwear
+                        </small>
+                        <div className="mt-2">
+                            <span className="text-[#5B3E38] font-bold text-lg sm:text-xl md:text-[24px] mr-2">
+                                $149.99
+                            </span>
+                        </div>
                     </div>
 
-                    {/* card-4 */}
-
+                    {/* Card 4 */}
                     <div>
-
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
-
-                            <div className='flex justify-end'>
-
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                        <div className="bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4">
+                            <div className="flex justify-end mb-2">
+                                <img
+                                    src={pluse}
+                                    alt=""
+                                    className="w-6 border border-[#E9E2D8] p-1"
                                 />
                             </div>
-
-                            <img src={shoes} alt="" />
-
-
+                            <img src={shoes} alt="" className="mx-auto" />
                         </div>
-
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Handcrafted Italian Leather Brogue <br /> Shoes with Stitched Detailing </h6>
-
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Shoes</small>
-                        <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$99.99</span>
-
+                        <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
+                            Handcrafted Italian Leather Brogue <br /> Shoes with Stitched
+                            Detailing
+                        </h6>
+                        <small className="text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block">
+                            Shoes
+                        </small>
+                        <div className="mt-2">
+                            <span className="text-[#5B3E38] font-bold text-lg sm:text-xl md:text-[24px] mr-2">
+                                $99.99
+                            </span>
+                        </div>
                     </div>
                 </div>
-
 
 
 
@@ -150,16 +148,16 @@ const TopPicks = () => {
 
 
 
-                <div className='mt-[40px] flex gap-[42px]'>
+                <div className='mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-[42px]'>
 
                     {/* card 1 */}
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
                             <div className='flex justify-end items-center'>
 
-                               
+
                                 <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
 
                                 />
@@ -170,12 +168,16 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Ultra-Soft Black Wool and <br /> Cashmere Blend Scarf with Fringe</h6>
+                        <div className=''>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Accessories</small>
-                        <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$54.99</span>
-                         {/* <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span> */}
+
+                            <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Ultra-Soft Black Wool and <br /> Cashmere Blend Scarf with Fringe</h6>
+
+                            <small className='text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block'>Accessories</small>
+                            <br />
+                            <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$54.99</span>
+                            {/* <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span> */}
+                        </div>
                     </div>
 
                     {/* card 2 */}
@@ -199,11 +201,11 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Navy Blue Single-Breasted Wool <br /> Blazer with Slim-Cut Design </h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px]  font-bold'>Navy Blue Single-Breasted Wool <br /> Blazer with Slim-Cut Design </h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Outerwear</small>
+                        <small className='text-[#AA8265] lg:text-[14px] sm:text-[14px] text-[14px]  font-semibold instrument-sans mt-[8px]'>Outerwear</small>
                         <br />
-                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$159.99</span> 
+                        <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$159.99</span>
                         <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans line-through'>$64.99</span>
                     </div>
 
@@ -212,7 +214,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100 pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
 
 
                             <div className='flex justify-end'>
@@ -228,9 +230,9 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Classic White Long-Sleeve Oxford <br /> Shirt with Tailored Fit and Button</h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Classic White Long-Sleeve Oxford <br /> Shirt with Tailored Fit and Button</h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Shirts</small>
+                        <small className='text-[#AA8265] lg:text-[14px] sm:text-[14px] text-[14px]  font-semibold instrument-sans mt-[8px]'>Shirts</small>
                         <br />
                         <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$64.99</span>
 
@@ -240,7 +242,7 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4pt-4 pl-4 pr-4'>
 
                             <div className='flex justify-between'>
 
@@ -255,12 +257,12 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Slim Fit Black Stretch Chino Pants <br /> with Comfort Waistband </h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Slim Fit Black Stretch Chino Pants <br /> with Comfort Waistband </h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Trousers</small>
+                        <small className='text-[#AA8265] lg:text-[14px] sm:text-[14px] text-[14px]  font-semibold instrument-sans mt-[8px]'>Trousers</small>
                         <br />
                         <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$74.99</span>
-                            <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans line-through'>$64.99</span>
+                        <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans line-through'>$64.99</span>
 
                     </div>
                 </div>
@@ -274,13 +276,13 @@ const TopPicks = () => {
 
 
 
-                  <div className='mt-[40px] flex gap-[42px]'>
+                <div className='mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-[42px]'>
 
                     {/* card 1 */}
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
                             <div className='flex justify-between items-center'>
 
                                 <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
@@ -294,9 +296,9 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Luxurious Soft Grey Wool and <br /> Cashmere Blend Scarf</h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Luxurious Soft Grey Wool and <br /> Cashmere Blend Scarf</h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Accessories</small>
+                        <small className='text-[#AA8265] lg:text-[14px] sm:text-[14px] text-[14px]  font-semibold instrument-sans mt-[8px]'>Accessories</small>
                         <br />
                         <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$64.99</span> <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span>
                     </div>
@@ -305,10 +307,10 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pl-4 pr-4 '>
+                        <div className='bg-neutral-100   p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
 
 
-                             <div className='flex justify-end pt-2'>
+                            <div className='flex justify-end pt-2'>
 
                                 {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
                                 <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
@@ -317,17 +319,17 @@ const TopPicks = () => {
                             </div>
 
 
-                            <img src={formal2 } alt=""  className=''/>
+                            <img src={formal2} alt="" className='' />
 
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Signature Crisp White Tailored <br /> Oxford Shirt with Premium Cotton </h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Signature Crisp White Tailored <br /> Oxford Shirt with Premium Cotton </h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>shirts</small>
+                        <small className='text-[#AA8265] lg:text-[14px] sm:text-[14px] text-[14px]  font-semibold instrument-sans mt-[8px]'>shirts</small>
                         <br />
                         <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$64.99</span>
-                         <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span>
+                        <span className='text-[#6D6D6D] text-[16px] font-semibold  Instrument Sans'>$64.99</span>
                     </div>
 
 
@@ -335,10 +337,10 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100 pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4'>
 
 
-                                 <div className='flex justify-end'>
+                            <div className='flex justify-end'>
 
                                 {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
                                 <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
@@ -351,9 +353,9 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Handcrafted Brown Italian Leather <br /> Derby Shoes with Premium Stitch</h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Handcrafted Brown Italian Leather <br /> Derby Shoes with Premium Stitch</h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Shoes</small>
+                        <small className='text-[#AA8265] lg:text-[14px] sm:text-[14px] text-[14px]  font-semibold instrument-sans mt-[8px]'>Shoes</small>
                         <br />
                         <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$149.99</span>
 
@@ -363,9 +365,9 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100  p-2   sm:p-3   md:p-4   lg:pt-4 lg:pl-4  lg:pr-4 '>
 
-                                 <div className='flex justify-end'>
+                            <div className='flex justify-end'>
 
                                 {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
                                 <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
@@ -378,9 +380,9 @@ const TopPicks = () => {
 
                         </div>
 
-                        <h6 className='instrument-sans text-[#5B3E38] text-[16px] instrument-sans mt-[16px] font-bold'>Modern Charcoal Grey Double- <br />Breasted Wool Suit Blazer </h6>
+                        <h6 className='instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold'>Modern Charcoal Grey Double- <br />Breasted Wool Suit Blazer </h6>
 
-                        <small className='text-[#AA8265] text-[14px] font-semibold instrument-sans mt-[8px]'>Outerwear</small>
+                        <small className='text-[#AA8265] text-xs sm:text-sm md:text-[14px] font-semibold instrument-sans mt-2 block'>Outerwear</small>
                         <br />
                         <span className='text- primary font-bold text-[24px] Instrument Sans mr-[8px] mt-[8px]'>$99.99</span>
 

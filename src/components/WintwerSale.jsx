@@ -25,7 +25,7 @@ const WintwerSale = () => {
                 <p className='text-center text-[16px] text-[#B0B0B0] instrument-sans mb-[52px]'> Stay warm without compromising on style. Explore our collection of wool coats, tailored
                     <br /> blazers, and scarves at exclusive prices this season.</p>
 
-                <div className='flex gap-[42px]'>
+                <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1   gap-[42px] '>
 
 
 
