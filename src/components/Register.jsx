@@ -5,12 +5,31 @@ import line from '../assets/img/Line 19.png'
 import { AuthContext } from '../Context/AuthContext/Authcontex';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
 
     const { createUser } = use(AuthContext)
+    const { signInGoogle } = use(AuthContext)
 
     const navigate = useNavigate()
+
+    const handleGoodleSignIn = () => {
+        signInGoogle()
+            .then(result => {
+                console.log(result)
+                  navigate('/')
+            })
+
+          
+
+
+            .catch(error => {
+
+                console.log(error)
+            })
+
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -84,11 +103,11 @@ const Register = () => {
                             <form onSubmit={handleSubmit} className="flex flex-col">
 
 
-                                <button className="text-[14px] font-medium   text-[#AA8265] border border-[#E9E2D8] mt-[40px] pr-[32px] pl-[32px] pt-[16px] pb-[16px] instrument-sans">
-
-
+                                <button onClick={handleGoodleSignIn} className=" flex justify-center items-center gap-4 text-[14px] font-medium   text-[#AA8265] border border-[#E9E2D8] mt-[40px] pr-[32px] pl-[32px] pt-[16px] pb-[16px] instrument-sans">
+                                    <FcGoogle />
                                     Register with Google
                                 </button>
+
 
                                 <div className='flex items-center justify-center gap-4 mt-[20px] text-[12px] font-normal text-[#BDA187]'> <img src={line} alt="" />or register with Email  <img src={line} alt="" /></div>
 

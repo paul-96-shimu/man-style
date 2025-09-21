@@ -11,7 +11,31 @@ const LogInPage = () => {
 
 
     const { logInUser } = use(AuthContext)
+         const { signInGoogle } = use(AuthContext)
+
     const navigate = useNavigate()
+
+
+
+    
+   
+    
+        const handleGoodleSignIn = () => {
+            signInGoogle()
+                .then(result => {
+                    console.log(result)
+                     navigate('/');
+                })
+    
+    
+    
+                
+                .catch(error => {
+    
+                    console.log(error)
+                })
+    
+        }
 
     const handleLogin = e => {
         e.preventDefault();
@@ -85,7 +109,7 @@ const LogInPage = () => {
                             <form onSubmit={handleLogin} className="flex flex-col">
 
 
-                                <button className="text-[14px] font-medium   text-[#AA8265] border border-[#E9E2D8] mt-[40px] pr-[32px] pl-[32px] pt-[16px] pb-[16px] instrument-sans">
+                                <button onClick={handleGoodleSignIn} className=" flex justify-center items-center gap-4 text-[14px] font-medium   text-[#AA8265] border border-[#E9E2D8] mt-[40px] pr-[32px] pl-[32px] pt-[16px] pb-[16px] instrument-sans">
                                     <FcGoogle />
                                     Login with Google
                                 </button>

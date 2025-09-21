@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { AuthContext } from './Authcontex';
 import { PiPassword } from 'react-icons/pi';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../firebase.init';
+
+import { GoogleAuthProvider } from "firebase/auth";
+
+const provider = new GoogleAuthProvider();
 
 const Authprovider = ({ children }) => {
 
@@ -24,10 +28,17 @@ const Authprovider = ({ children }) => {
     }
 
 
+    const signInGoogle =()=>{
+        setLoading(true)
+        return signInWithPopup( auth, provider )
+
+    }
+
     const authInfo = {
         loading,
         createUser,
-        logInUser 
+        logInUser ,
+         signInGoogle ,
 
 
     }
