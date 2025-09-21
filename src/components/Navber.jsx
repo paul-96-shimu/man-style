@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 
 import long from '../assets/img/long.png'
 import search from '../assets/img/search.png'
@@ -6,8 +6,24 @@ import favorite_border from '../assets/img/favorite_border.png'
 import shopping from '../assets/img/shopping_cart.png'
 import img from '../assets/img/more button.png'
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Context/AuthContext/Authcontex';
 
 const Navber = () => {
+
+    const { user, logOut } = use(AuthContext)
+
+    const handleLogOut = () => {
+
+        logOut()
+        .then(()=>{
+
+            console.log('logout user')
+        }).catch(error =>{
+
+            console.log(error)
+        })
+
+    }
     return (
         <div className='bg-black py-[40px]'>
             <div className='container mx-auto instrument-sans  '>
@@ -21,7 +37,7 @@ const Navber = () => {
 
                         <NavLink to="contact"> <li className='text-[#B0B0B0] text-[16px]'>CONTACT US</li>   </NavLink>
 
-               
+
                     </ul>
 
                     <div className='flex gap-[180px]'>
@@ -45,8 +61,26 @@ const Navber = () => {
                         <img src={shopping} alt="" />
 
 
-                       <Link to='/register'> <button className='btn'>Register</button></Link>
-                        <Link to='/login'> <button className='btn'>Login </button></Link>
+
+
+
+
+                        <div>
+                            {
+
+
+                                user ? <button onClick={handleLogOut} className='btn'>LogOut </button> :
+
+                                    <>
+                                        <Link to='/register'> <button className='btn'>Register</button></Link>
+                                        <Link to='/login'> <button className='btn'>Login </button></Link>
+
+                                    </>
+                            }
+                        </div>
+
+
+
                     </div>
 
                 </div>
