@@ -4,7 +4,7 @@ import jacket from '../assets/img/brown jacket.png'
 import line from '../assets/img/Line 19.png'
 import { AuthContext } from '../Context/AuthContext/Authcontex';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
@@ -93,7 +93,9 @@ const Register = () => {
                         <div className='bg-[#FFF] shadow-lg  pl-[80px] pr-[80px] pt-[80px] '>
 
                             <h1 className='text-[#5B3E38] instrument-sans font-bold text-[24px]'>Create Account</h1>
-                            <p className='text-[#5B3E38] text-[16px] font-medium'> Already have an account? <span className='text-[#AA8265]'>Log in here</span></p>
+                            <p className='text-[#5B3E38] text-[16px] font-medium'> Already have an account? 
+                                
+                                <Link to={'/login'} className='text-[#AA8265]'>Log in here</Link></p>
 
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AuthContext } from './Authcontex';
 import { PiPassword } from 'react-icons/pi';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../../firebase.init';
 
 import { GoogleAuthProvider } from "firebase/auth";
@@ -44,6 +44,13 @@ const Authprovider = ({ children }) => {
 
     }
 
+
+    const passwordRest = (email) => {
+
+        return sendPasswordResetEmail(auth, email)
+
+    }
+
     useEffect(() => {
 
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
@@ -64,6 +71,7 @@ const Authprovider = ({ children }) => {
         signInGoogle,
         logOut,
         user,
+        passwordRest,
 
 
 

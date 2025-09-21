@@ -1,41 +1,47 @@
-import React, { use } from 'react';
+import React, {  useContext, useRef } from 'react';
 
 import pamlar2 from '../assets/img/pamlar2.png'
 import line from '../assets/img/Line 19.png'
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Context/AuthContext/Authcontex';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const LogInPage = () => {
 
 
-    const { logInUser } = use(AuthContext)
-         const { signInGoogle } = use(AuthContext)
+    // const { logInUser } = use(AuthContext)
+    // const { signInGoogle } = use(AuthContext)
+    // const { passwordRest } = use(AuthContext)
+
+      const { logInUser, signInGoogle, passwordRest } = useContext(AuthContext);
+
+
+    const emailRef = useRef();
 
     const navigate = useNavigate()
 
 
 
-    
-   
-    
-        const handleGoodleSignIn = () => {
-            signInGoogle()
-                .then(result => {
-                    console.log(result)
-                     navigate('/');
-                })
-    
-    
-    
-                
-                .catch(error => {
-    
-                    console.log(error)
-                })
-    
-        }
+
+
+
+    const handleGoodleSignIn = () => {
+        signInGoogle()
+            .then(result => {
+                console.log(result)
+                navigate('/');
+            })
+
+
+
+
+            .catch(error => {
+
+                console.log(error)
+            })
+
+    }
 
     const handleLogin = e => {
         e.preventDefault();
@@ -63,6 +69,24 @@ const LogInPage = () => {
 
 
 
+
+    }
+
+
+
+    const handleForgetPassword = () => {
+
+        const email = emailRef.current.value;
+
+        passwordRest(email)
+        .then(()=>{
+
+            alert('A password reset email is sent. please check your Email.')
+        })
+        .catch(error=>{
+
+            console.log(error)
+        })
 
     }
     return (
@@ -99,7 +123,11 @@ const LogInPage = () => {
                         <div className='bg-[#FFF] shadow-lg  pl-[80px] pr-[80px] pt-[80px] '>
 
                             <h1 className='text-[#5B3E38] instrument-sans font-bold text-[24px]'>Log in</h1>
-                            <p className='text-[#5B3E38] text-[16px] font-medium'> Don’t have account yet?  <span className='text-[#AA8265]'>Sign up here</span></p>
+                            <p className='text-[#5B3E38] text-[16px] font-medium'> Don’t have account yet?{' '} 
+                                
+                                 <Link to='/register' className='text-[#AA8265]'>Sign up here</Link>
+                                 
+                                 </p>
 
 
 
@@ -117,7 +145,7 @@ const LogInPage = () => {
                                 <div className='flex items-center justify-center gap-4 mt-[20px] text-[12px] font-normal text-[#BDA187]'>
                                     <img src={line} alt="" />or Sign with Email  <img src={line} alt="" /></div>
 
-                                <input type="email" name='email' className=" border border-[#BDA187] p-[16px] mt-[20px]" placeholder="Email" />
+                                <input type="email" name='email' ref={emailRef} className=" border border-[#BDA187] p-[16px] mt-[20px]" placeholder="Email" />
 
                                 <input type="Password" name='password' className=" border border-[#BDA187] p-[16px] mt-[20px]" placeholder="Password" />
 
@@ -133,7 +161,7 @@ const LogInPage = () => {
                                     </label>
 
                                     {/* Right side - Forgot password */}
-                                    <h4 className="text-sm text-[#AA8265] cursor-pointer hover:underline">
+                                    <h4 onClick={handleForgetPassword} className="text-sm text-[#AA8265] cursor-pointer hover:underline">
                                         Forgot password?
                                     </h4>
                                 </div>
