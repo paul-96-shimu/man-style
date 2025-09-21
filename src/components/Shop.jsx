@@ -69,7 +69,7 @@ const Shop = () => {
 
                     <div>
 
-                        <div className='flex'>
+                        <div className='grid grid-cols-2 col-span-2'>
                             <img className='w-full' src={jacket} alt="" />
                             <h4 className='instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>outer <br />  Wear</h4>
 

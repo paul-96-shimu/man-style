@@ -1,26 +1,26 @@
 import React, { use } from 'react';
 
-import jacket from '../assets/img/brown jacket.png'
+import pamlar2 from '../assets/img/pamlar2.png'
 import line from '../assets/img/Line 19.png'
+import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Context/AuthContext/Authcontex';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 
-const Register = () => {
+const LogInPage = () => {
 
-    const { createUser } = use(AuthContext)
 
+    const { logInUser } = use(AuthContext)
     const navigate = useNavigate()
 
-    const handleSubmit = e => {
+    const handleLogin = e => {
         e.preventDefault();
 
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
-
-        createUser(email, password)
+        logInUser(email, password)
             .then(result => {
                 console.log(result)
                 Swal.fire({
@@ -39,6 +39,7 @@ const Register = () => {
 
 
 
+
     }
     return (
         <section>
@@ -51,19 +52,19 @@ const Register = () => {
                 <div className=' '>
                     <div className=' grid col-span-2 grid-cols-2'>
 
-                        <div className='bg-[rgba(91,62,56,0.38)] pt-[40px] pl-[40px]'>
+                        <div className='bg-[rgba(91,62,56,0.38)] pt-[40px] pl-[40px] flex items-center'>
 
                             <h1 className=' text- primary text-[72px] instrument-serif-regular leading-[100%] '
-                            >Style That
-                                <span className='text-[#AA8265] instrument-serif-regular-italic'>Speaks</span> <br /> for You</h1>
+                            >
+                                <span className='text-[#AA8265] instrument-serif-regular-italic'>Refined Style</span>  for <br /> the Modern Man</h1>
 
                             <div className='flex mt-[50px]'>
 
-                                <p>“From classic staples to <br /> modern essentials, elevate <br /> your wardrobe with pieces <br />that redefine timeless fashion."</p>
+                                {/* <p>“From classic staples to <br /> modern essentials, elevate <br /> your wardrobe with pieces <br />that redefine timeless fashion."</p> */}
 
-                                <img src={jacket} alt="" />
+                                <img src={pamlar2} alt="" />
 
-                                <p>Discover expertly crafted <br /> menswear designed to <br /> inspire confidence and <br /> sophistication</p>
+                                {/* <p>Discover expertly crafted <br /> menswear designed to <br /> inspire confidence and <br /> sophistication</p> */}
                             </div>
                         </div>
 
@@ -73,24 +74,24 @@ const Register = () => {
 
                         <div className='bg-[#FFF] shadow-lg  pl-[80px] pr-[80px] pt-[80px] '>
 
-                            <h1 className='text-[#5B3E38] instrument-sans font-bold text-[24px]'>Create Account</h1>
-                            <p className='text-[#5B3E38] text-[16px] font-medium'> Already have an account? <span className='text-[#AA8265]'>Log in here</span></p>
+                            <h1 className='text-[#5B3E38] instrument-sans font-bold text-[24px]'>Log in</h1>
+                            <p className='text-[#5B3E38] text-[16px] font-medium'> Don’t have account yet?  <span className='text-[#AA8265]'>Sign up here</span></p>
 
 
 
 
 
 
-                            <form onSubmit={handleSubmit} className="flex flex-col">
+                            <form onSubmit={handleLogin} className="flex flex-col">
 
 
                                 <button className="text-[14px] font-medium   text-[#AA8265] border border-[#E9E2D8] mt-[40px] pr-[32px] pl-[32px] pt-[16px] pb-[16px] instrument-sans">
-
-
-                                    Register with Google
+                                    <FcGoogle />
+                                    Login with Google
                                 </button>
 
-                                <div className='flex items-center justify-center gap-4 mt-[20px] text-[12px] font-normal text-[#BDA187]'> <img src={line} alt="" />or register with Email  <img src={line} alt="" /></div>
+                                <div className='flex items-center justify-center gap-4 mt-[20px] text-[12px] font-normal text-[#BDA187]'>
+                                    <img src={line} alt="" />or Sign with Email  <img src={line} alt="" /></div>
 
                                 <input type="email" name='email' className=" border border-[#BDA187] p-[16px] mt-[20px]" placeholder="Email" />
 
@@ -115,7 +116,7 @@ const Register = () => {
 
 
                                 <button className="border border-[#BDA187] mt-[20px] text-[16px] pr-[32px] pl-[32px] pt-[16px] pb-[16px] 
-                                 text-[#F6F4F0] bg-[#AA8265] font-medium ">Register Now</button>
+                                        text-[#F6F4F0] bg-[#AA8265] font-medium ">LogIn Now</button>
                             </form>
                         </div>
 
@@ -126,4 +127,4 @@ const Register = () => {
     );
 };
 
-export default Register; 
+export default LogInPage;

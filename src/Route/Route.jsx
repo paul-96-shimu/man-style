@@ -5,6 +5,7 @@ import Home from "../components/Home";
 import ContactUs from "../components/ContactUs";
 import AuthLayOut from "../components/AuthLayout/AuthLayOut";
 import Register from "../components/Register";
+import LogInPage from "../components/LogInPage";
 
 
 export const router = createBrowserRouter([
@@ -42,6 +43,13 @@ children:[
 
     path:'register',
     Component:Register
+  },
+
+
+  {
+
+    path:'login',
+    Component:LogInPage
   }
 ]
 
