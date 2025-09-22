@@ -1,7 +1,7 @@
 import React from 'react';
 import aworrbutton from '../assets/img/arroe button.png'
-import brownman from '../assets/img/brownman.png'
-import blackpant from '../assets/img/black pant.png'
+import brownman from '../assets/img/veryhandsome.png'
+import blackpant from '../assets/img/veryformal.png'
 import star from '../assets/img/Star 1.png'
 import remove from '../assets/img/remove.png'
 import add from '../assets/img/add.png'
@@ -12,7 +12,7 @@ const TheModernLook = () => {
 
             <div className='container mx-auto '>
 
-                <div className='flex gap-[100px] '>
+                <div className='flex gap-[100px] justify-between '>
                     <div className='pt-[80px]  '>
                         <h4 className='text-[#AA8265] text-[20px] font-bold instrument-sans mb-[24px]'>TRENDING NOW</h4>
                         <h1 className='text -primary instrument-serif-regular text-[96px] leading-[100%]'> The Modern <br /> Look: <span className='text-[#AA8265]'>Double- <br />Breasted</span>
@@ -37,16 +37,16 @@ const TheModernLook = () => {
                 </div>
 
 
-                <div className='flex gap-[100px] mt-10 '>
+                <div className='flex gap-[100px] justify-between mt-10 '>
 
 
 
 
 
                     <div className='bg-neutral-200  '>
-                        <div className='text-right pt-[10px]'>
+                        <div className='text-right'>
 
-                            <div className='mt-[4px]'>
+                            {/* <div className='mt-[4px]'>
 
                                 <small className='text- primary   bg-[#E9E2D8] pl-[18px] pr-[18px]  instrument-sans text-[18px] font-bold'>30% Off</small>
 
@@ -55,7 +55,29 @@ const TheModernLook = () => {
                             <div>
 
                                 <img src={blackpant} alt="" className='w-[700px] h-[723px] ' />
+                            </div> */}
+
+
+
+
+                            <div className="relative  w-fit mx-auto">
+                                <img src={blackpant} alt="" className="mx-auto" />
+
+                                <div className='absolute top-15 right-20  flex justify-between px-2'>
+
+
+
+
+
+
+                                    <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
+                                        30% Off
+                                    </small>
+                                  
+                                </div>
                             </div>
+
+
                         </div>
 
                     </div>

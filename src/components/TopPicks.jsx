@@ -32,18 +32,29 @@ const TopPicks = () => {
                 <div className="mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-[42px]">
                     {/* Card 1 */}
                     <div>
-                        <div className="bg-neutral-100  pt-4 pl-4 pr-4">
-                            <div className="flex justify-between items-center mb-2">
-                                <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
-                                    30% Off
-                                </small>
-                                <img
-                                    src={pluse}
-                                    alt=""
-                                    className="w-6 border border-[#E9E2D8] p-1"
-                                />
+                        <div className="bg-neutral-100  ">
+                            <div className="relative  w-fit mx-auto">
+                                <img src={whiteshirt} alt="" className="mx-auto" />
+
+                                <div className='absolute top-2 left-0 right-0 flex justify-between px-2'>
+
+
+
+                                   
+
+
+                                        <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
+                                            30% Off
+                                        </small>
+                                        <img
+                                            src={pluse}
+                                            alt=""
+                                            className="w-6 border border-[#E9E2D8] p-1"
+                                        />
+                                
+                                </div>
                             </div>
-                            <img src={whiteshirt} alt="" className="mx-auto" />
+
                         </div>
                         <div className="mt-2 p-2 sm:p-1 md:p-1">
                             <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
@@ -64,15 +75,20 @@ const TopPicks = () => {
 
                     {/* Card 2 */}
                     <div>
-                        <div className="bg-neutral-100 pt-4 pl-4 pr-4">
-                            <div className="flex justify-end mb-2">
+                        <div className="bg-neutral-100 ">
+
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={pant} alt="" className="mx-auto" />
+
+                                {/* Plus icon on top-right */}
                                 <img
                                     src={pluse}
-                                    alt=""
-                                    className="w-6 border border-[#E9E2D8] p-1"
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
-                            <img src={pant} alt="" className="mx-auto" />
+
                         </div>
                         <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
                             Slim Fit Sandstone Chino Pants <br /> with Stretch Comfort Fabric
@@ -92,15 +108,19 @@ const TopPicks = () => {
 
                     {/* Card 3 */}
                     <div>
-                        <div className="bg-neutral-100 pt-4 pl-4 pr-4">
-                            <div className="flex justify-end mb-2">
+                        <div className="bg-neutral-100 ">
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={brown} alt="" className="mx-auto" />
+
+                                {/* Plus icon on top-right */}
                                 <img
                                     src={pluse}
-                                    alt=""
-                                    className="w-6 border border-[#E9E2D8] p-1"
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
-                            <img src={brown} alt="" className="mx-auto" />
+
                         </div>
                         <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
                             Premium Brown Double-Breasted <br /> Tailored Blazer
@@ -117,15 +137,19 @@ const TopPicks = () => {
 
                     {/* Card 4 */}
                     <div>
-                        <div className="bg-neutral-100   pt-4 pl-4 pr-4">
-                            <div className="flex justify-end mb-2">
+                        <div className="bg-neutral-100 ">
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={shoes} alt="" className="mx-auto" />
+
+                                {/* Plus icon on top-right */}
                                 <img
                                     src={pluse}
-                                    alt=""
-                                    className="w-6 border border-[#E9E2D8] p-1"
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
-                            <img src={shoes} alt="" className="mx-auto" />
+
                         </div>
                         <h6 className="instrument-sans text-[#5B3E38] text-sm sm:text-base md:text-[16px] mt-3 font-bold">
                             Handcrafted Italian Leather Brogue <br /> Shoes with Stitched
@@ -154,16 +178,19 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4  '>
-                            <div className='flex justify-end items-center'>
+                        <div className='bg-neutral-100  '>
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={pamlar} alt="" className="mx-auto" />
 
-
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
-                            <img src={pamlar} alt="" />
 
 
                         </div>
@@ -184,19 +211,22 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4  '>
+                        <div className='bg-neutral-100   '>
 
 
-                            <div className='flex justify-between items-center mb-2'>
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={bluecot} alt="" className="mx-auto" />
 
-                                <small className='text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans'>30% Off</small>
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
 
-                            <img src={bluecot} alt="" className='' />
 
 
                         </div>
@@ -214,18 +244,20 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4 '>
+                        <div className='bg-neutral-100  '>
 
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={formal} alt="" className="mx-auto" />
 
-                            <div className='flex justify-end'>
-
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
-                            <img src={formal} alt="" />
 
 
                         </div>
@@ -242,17 +274,31 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4 '>
+                        <div className='bg-neutral-100 '>
 
-                            <div className='flex justify-between'>
+                             <div className="relative  w-fit mx-auto">
+                                <img src={blackpant} alt="" className="mx-auto" />
 
-                                <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
+                                <div className='absolute top-4 left-4 right-0 flex justify-between px-2'>
 
-                                />
+
+
+                                   
+
+
+                                        <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
+                                            30% Off
+                                        </small>
+                                        <img
+                                            src={pluse}
+                                            alt=""
+                                            className="w-6 border border-[#E9E2D8] p-1"
+                                        />
+                                
+                                </div>
                             </div>
 
-                            <img src={blackpant} alt="" />
+                          
 
 
                         </div>
@@ -282,16 +328,20 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
-                            <div className='flex justify-between items-center'>
+                        <div className='bg-neutral-100  '>
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={pamlar2} alt="" className="mx-auto" />
 
-                                <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small>
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
-                            <img src={pamlar2} alt="" />
+
 
 
                         </div>
@@ -307,19 +357,22 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100 pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100 '>
 
 
-                            <div className='flex justify-end pt-2'>
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={formal2} alt="" className="mx-auto" />
 
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
 
-                            <img src={formal2} alt="" className='' />
 
 
                         </div>
@@ -337,18 +390,22 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4'>
+                        <div className='bg-neutral-100  '>
 
 
-                            <div className='flex justify-end'>
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={shoes2} alt="" className="mx-auto" />
 
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
-                            <img src={shoes2} alt="" />
+
 
 
                         </div>
@@ -365,17 +422,20 @@ const TopPicks = () => {
 
                     <div>
 
-                        <div className='bg-neutral-100  pt-4 pl-4 pr-4  '>
+                        <div className='bg-neutral-100    '>
 
-                            <div className='flex justify-end'>
+                            <div className="relative w-fit mx-auto">
+                                {/* Pant image */}
+                                <img src={gray} alt="" className="mx-auto" />
 
-                                {/* <small className='text- primary  font-bold bg-[#E9E2D8] pl-[12px] pr-[14px]   instrument-sans'>30% Off</small> */}
-                                <img src={pluse} alt="" className='w-[24px] border border-[#E9E2D8] p-[5px] '
-
+                                {/* Plus icon on top-right */}
+                                <img
+                                    src={pluse}
+                                    alt="plus"
+                                    className="absolute top-2 right-2 w-6 border border-[#E9E2D8] p-1 bg-white rounded"
                                 />
                             </div>
 
-                            <img src={gray} alt="" />
 
 
                         </div>

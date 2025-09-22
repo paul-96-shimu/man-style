@@ -5,10 +5,10 @@ import viewmore from '../assets/img/view more button.png'
 import man2 from '../assets/img/smartman.png'
 import man3 from '../assets/img/formal man.png'
 import man4 from '../assets/img/formal pant.png'
-import cap from '../assets/img/cap.png'
-import half from '../assets/img/underware.png'
-import jacket from '../assets/img/brown jacket.png'
-import shoes from '../assets/img/shoes.png'
+import cap from '../assets/img/cap3333333.png'
+import half from '../assets/img/underwear2222.png'
+import jacket from '../assets/img/brownjaket.png'
+import shoes from '../assets/img/black shoes.png'
 import textcontent from '../assets/img/textcontent.png'
 
 const Shop = () => {
@@ -46,7 +46,7 @@ const Shop = () => {
                             <h5 className='flex gap-[8px] text-[#5B3E38] mt-[16px] font-bold instrument-sans'>Suits (Formal & Casual) <img src={textcontent} alt="" className='' /> Tuxedo<img src={textcontent} alt="" /> Waistcoats</h5>
                         </div>
                     </div>
-                    <div className='col-span-2 grid grid-cols-2'>
+                    <div className='col-span-2 grid grid-cols-2 '>
                         <div>
 
 
@@ -67,58 +67,61 @@ const Shop = () => {
                     </div>
 
 
+
+                    {/* card layout 2 */}
+
                     <div>
 
-                        <div className='grid grid-cols-2 col-span-2'>
+                        <div className='relative'>
                             <img className='w-full' src={jacket} alt="" />
-                            <h4 className='instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>outer <br />  Wear</h4>
+                            <h4 className=' absolute top-20 right-4 transform -translate-y-1/2 instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>outer <br />  Wear</h4>
 
 
 
                         </div>
 
-                        <h5 className='flex gap-[8px] text-[#5B3E38] mt-[16px] font-bold instrument-sans'>Shirts (Formal & Casual) | Polo Shirts |
-                            <br /> Knitwear </h5>
+                        <h5 className='text-center text-[16px] text-[#5B3E38] mt-[16px] font-bold instrument-sans'>Jackets | Bombers |
+                            Parkas </h5>
 
 
 
                     </div>
 
                     <div>
-                        <div className="flex">
+                        <div className="relative">
                             {/* Image */}
                             <img className="w-full" src={half} alt="" />
 
                             {/* Text under the image */}
-                            <h4 className="instrument-serif-regular-italic text-[#AA8265] text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-tight mt-4 text-center">
+                            <h4 className=" absolute bottom-4 left-4 instrument-serif-regular-italic text-[#AA8265] text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-tight mt-4 text-center">
                                 Under <br /> Wear
                             </h4>
                         </div>
 
                         {/* Subtitle */}
-                        <h5 className="flex flex-wrap gap-2 text-[#5B3E38] mt-4 font-bold instrument-sans text-sm sm:text-base md:text-lg text-center">
-                            Shirts (Formal & Casual) | Polo Shirts | Knitwear
+                        <h5 className=" text-[#5B3E38] mt-4 font-bold instrument-sans text-[16px] text-center">
+                           Briefs |Boxers | Boxer Briefs
                         </h5>
                     </div>
 
                     <div>
 
-                        <div className=''>
+                        <div className='relative'>
 
-                             <h4 className='instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>Accessories</h4>
+                            <h4 className=' absolute top-20 right-4 transform -translate-y-1/2 instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>Accessories</h4>
 
                             <img className='w-full' src={cap} alt="" />
 
 
-                           
+
 
 
 
                         </div>
 
 
-                        <h5 className='flex gap-[8px] text-[#5B3E38] mt-[16px] font-bold instrument-sans'>Shirts (Formal & Casual) | Polo Shirts |
-                            <br /> Knitwear </h5>
+                        <h5 className='text-center text-[14px] text-[#5B3E38] mt-[16px] font-bold instrument-sans'>Belts | Gloves | Caps | Ties
+                            </h5>
 
                     </div>
 
@@ -127,16 +130,16 @@ const Shop = () => {
 
 
 
-                        <div className='flex flex-col '>
+                        <div className='relative'>
                             <img className='w-full' src={shoes} alt="" />
-                            <h4 className='instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>shoes</h4>
+                            <h4 className='  absolute bottom-4 left-30 instrument-serif-regular-italic  text-[#AA8265] text-[64px] leading-[100%]'>shoes</h4>
 
 
 
                         </div>
 
-                        <h5 className='flex gap-[8px] text-[#5B3E38] mt-[16px] font-bold instrument-sans'>Shirts (Formal & Casual) | Polo Shirts |
-                            <br /> Knitwear </h5>
+                        <h5 className=' text-[#BDA187] text-[14px]  mt-[16px] font-bold instrument-sans text-center'>Formal Shoes | Loafers | Boots
+                             </h5>
 
                     </div>
 
