@@ -7,12 +7,13 @@ import WintwerSale from './WintwerSale';
 import LetCostumer from './LetCostumer';
 import TheModernLook from './TheModernLook';
 import Stay from './Stay';
+import SpecialOfferModal from './SpecialOfferModal';
 
 const Home = () => {
     return (
         <div>
             
-   
+   <SpecialOfferModal></SpecialOfferModal>
     <Banner></Banner>
     <ShopCategory></ShopCategory>
     <Shop></Shop>

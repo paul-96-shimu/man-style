@@ -46,17 +46,7 @@ const TheModernLook = () => {
                     <div className='bg-neutral-200  '>
                         <div className='text-right'>
 
-                            {/* <div className='mt-[4px]'>
-
-                                <small className='text- primary   bg-[#E9E2D8] pl-[18px] pr-[18px]  instrument-sans text-[18px] font-bold'>30% Off</small>
-
-                            </div>
-
-                            <div>
-
-                                <img src={blackpant} alt="" className='w-[700px] h-[723px] ' />
-                            </div> */}
-
+                          
 
 
 

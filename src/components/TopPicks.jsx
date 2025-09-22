@@ -100,9 +100,7 @@ const TopPicks = () => {
                             <span className="text-[#5B3E38] font-bold text-lg sm:text-xl md:text-[24px] mr-2">
                                 $74.99
                             </span>
-                            <span className="text-[#6D6D6D] text-sm sm:text-base md:text-[16px] font-semibold line-through">
-                                $99.99
-                            </span>
+                           
                         </div>
                     </div>
 
