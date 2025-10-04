@@ -6,6 +6,7 @@ import ContactUs from "../components/ContactUs";
 import AuthLayOut from "../components/AuthLayout/AuthLayOut";
 import Register from "../components/Register";
 import LogInPage from "../components/LogInPage";
+import DetailsPage from "../components/DetailsPage";
 
 
 export const router = createBrowserRouter([
@@ -26,6 +27,11 @@ export const router = createBrowserRouter([
    {
         path: 'contact',
         Component: ContactUs,
+      },
+
+      {
+        path: "product/:id",   
+        Component: DetailsPage
       },
 
   ]

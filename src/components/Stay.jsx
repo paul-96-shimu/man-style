@@ -8,7 +8,7 @@ export default function Stay() {
     return (
         <section style={{
             backgroundImage: `url(${bgcover})`,
-             backgroundSize: "2200px",
+             backgroundSize: "cover",
             backgroundRepeat:"no-repeat",
             backgroundPosition: "center",
         }}
