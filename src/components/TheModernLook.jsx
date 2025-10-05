@@ -87,7 +87,8 @@ const TheModernLook = () => {
                         <div className='flex gap-[40px] '>
 
                             <div className='mb-[40px]'>
-                                <button className=' instrument-sans btn pl-[16px] pr-[16px] pt-2 pb-2 inline-flex items-center gap-4'> <img src={remove} alt="" /> 1  <img src={add} alt="" /></button>
+                                <button className=' instrument-sans btn pl-[16px] pr-[16px] pt-2 pb-2 inline-flex items-center gap-4'>
+                                     <img src={remove} alt="" /> 1  <img src={add} alt="" /></button>
 
                             </div>
 
