@@ -4,6 +4,7 @@ import pluse from '../assets/img/plus.png';
 import remove from '../assets/img/remove.png';
 import add from '../assets/img/add.png';
 import { useCart } from '../Context/CartContext';
+import { useWishlist } from '../Context/WishListContex';
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -11,7 +12,8 @@ const DetailsPage = () => {
   const [related, setRelated] = useState([]);
   const [quantity, setQuantity] = useState(1);
   
-  const { addToCart } = useCart(); // context theke cart system use hocche
+  const { addToCart } = useCart(); 
+  const { addToWishList } = useWishlist();
 
   useEffect(() => {
     // ✅ fetch single product
@@ -36,6 +38,10 @@ const DetailsPage = () => {
     addToCart({ ...product, quantity });
     alert(`${product.title} added to cart (${quantity} pcs)`);
   };
+
+  const handleAddToWishList = () => {
+  addToWishList(product);
+};
 
   return (
     <div className="container mx-auto mt-8">
@@ -86,6 +92,16 @@ const DetailsPage = () => {
           >
             Add to Cart
           </button>
+
+             <button
+            className=" ml-4 mt-6 text-[16px] text-[#F6F4F0] bg-[#AA8265] inline-flex gap-2 pt-4 pb-4 pr-8 pl-8 rounded hover:bg-[#8b6c50]"
+            onClick={handleAddToWishList}
+          >
+            Add to WishList
+          </button>
+
+
+          
         </div>
       </div>
 

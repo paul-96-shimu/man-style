@@ -8,10 +8,12 @@ import search from '../assets/img/search.png'
 import favorite_border from '../assets/img/favorite_border.png'
 import shopping from '../assets/img/shopping_cart.png'
 import img from '../assets/img/more button.png'
+import { useWishlist } from '../Context/WishListContex';
 
 const Navber = () => {
-    const { user, logOut } = useContext(AuthContext); // ✅ ঠিক করা
-    const { totalItems } = useCart(); // ✅ Cart সংখ্যা
+    const { user, logOut } = useContext(AuthContext); 
+    const { totalItems } = useCart(); 
+    const { wishlistItems } = useWishlist();
 
     const handleLogOut = () => {
         logOut()
@@ -41,7 +43,14 @@ const Navber = () => {
 
                         <img src={long} alt="" />
                         <img src={search} alt="" />
+                      <Link to="/wishlist"  className="relative">
                         <img src={favorite_border} alt="" />
+                        {wishlistItems.length > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                                {wishlistItems.length}
+                            </span>
+                        )}
+                      </Link>
 
                         <Link to="/cart" className="relative">
                             <img src={shopping} alt="Cart" className="w-8 h-8" />

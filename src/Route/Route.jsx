@@ -8,6 +8,7 @@ import Register from "../components/Register";
 import LogInPage from "../components/LogInPage";
 import DetailsPage from "../components/DetailsPage";
 import CartPage from "../components/CartPage";
+import WishListPage from "../components/WishListPage";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,12 @@ export const router = createBrowserRouter([
         path: 'cart',
         Component:CartPage
 
+      },
+
+      {
+
+        path:'wishlist',
+        Component:WishListPage
       }
 
     ]
