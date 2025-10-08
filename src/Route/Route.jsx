@@ -7,57 +7,64 @@ import AuthLayOut from "../components/AuthLayout/AuthLayOut";
 import Register from "../components/Register";
 import LogInPage from "../components/LogInPage";
 import DetailsPage from "../components/DetailsPage";
+import CartPage from "../components/CartPage";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
-  Component: RootLayOut,
+    Component: RootLayOut,
 
-  children:[
+    children: [
 
 
-    {
-         index: true,
+      {
+        index: true,
         Component: Home
 
 
-    },
+      },
 
-   {
+      {
         path: 'contact',
         Component: ContactUs,
       },
 
       {
-        path: "product/:id",   
+        path: "product/:id",
         Component: DetailsPage
       },
 
-  ]
+      {
+        path: 'cart',
+        Component:CartPage
+
+      }
+
+    ]
   },
 
 
   {
 
-path:'/',
-Component: AuthLayOut,
+    path: '/',
+    Component: AuthLayOut,
 
-children:[
+    children: [
 
-  {
+      {
 
-    path:'register',
-    Component:Register
-  },
+        path: 'register',
+        Component: Register
+      },
 
 
-  {
+      {
 
-    path:'login',
-    Component:LogInPage
-  }
-]
+        path: 'login',
+        Component: LogInPage
+      }
+    ]
 
 
   }
