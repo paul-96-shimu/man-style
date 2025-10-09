@@ -37,7 +37,7 @@ const TopPicks = () => {
                   <div className="absolute top-2 left-0 right-0 flex justify-between px-2">
                     {item.discount && (
                       <small className="text-[#5B3E38] font-bold bg-[#E9E2D8] px-3 py-1 text-xs sm:text-sm instrument-sans">
-                        {item.discount}
+                        {item.discount}% off
                       </small>
                     )}
                     <img

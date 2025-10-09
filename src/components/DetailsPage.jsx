@@ -11,8 +11,11 @@ const DetailsPage = () => {
   const [product, setProduct] = useState(null);
   const [related, setRelated] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  
-  const { addToCart } = useCart(); 
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
+
+
+  const { addToCart } = useCart();
   const { addToWishList } = useWishlist();
 
   useEffect(() => {
@@ -35,13 +38,17 @@ const DetailsPage = () => {
 
   // ✅ Add to cart (context)
   const handleAddToCart = () => {
-    addToCart({ ...product, quantity });
+    if (!selectedSize || !selectedColor) {
+      alert('Please select a size and color first!');
+      return;
+    }
+    addToCart({ ...product, quantity, selectedSize, selectedColor });
     alert(`${product.title} added to cart (${quantity} pcs)`);
   };
-
   const handleAddToWishList = () => {
-  addToWishList(product);
-};
+    addToWishList(product);
+    alert(`${product.title} added to wishlist 💖`);
+  };
 
   return (
     <div className="container mx-auto mt-8">
@@ -49,18 +56,66 @@ const DetailsPage = () => {
       <div className="flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-1/2">
           <img
-            src={product.images[0]}
+            src={product.images?.[0]}
             alt={product.title}
             className="mx-auto w-full max-w-md rounded-md"
           />
         </div>
-
+        {/* product information */}
         <div className="w-full md:w-1/2">
           <h1 className="text-2xl font-bold">{product.title}</h1>
           <p className="text-[#AA8265]">
             {product.category} / {product.collection}
           </p>
+          <div className="font-bold text-xl">
+            {product.price} {product.currency}
+          </div>
+          {/* ⭐ Rating */}
+          <p className="text-yellow-500 font-semibold">
+            ⭐ {product.rating} / 5
+          </p>
 
+          {/* 📦 Stock */}
+          <p className={product.stock > 0 ? "text-green-600" : "text-red-500"}>
+            {product.stock > 0 ? `In Stock (${product.stock})` : 'Out of Stock'}
+          </p>
+
+
+          {/* 👕 Sizes */}
+          <div>
+            <h4 className="font-semibold mb-2">Available Sizes:</h4>
+            <div className="flex gap-2">
+              {product.sizes?.map((size, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedSize(size)}
+                  className={`px-3 py-1 border rounded ${selectedSize === size
+                      ? 'bg-[#AA8265] text-white'
+                      : 'bg-white text-black'
+                    }`}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 🎨 Colors */}
+          <div>
+            <h4 className="font-semibold mb-2">Available Colors:</h4>
+            <div className="flex gap-2">
+              {product.colors?.map((color, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedColor(color)}
+                  className={`w-8 h-8 rounded-full border cursor-pointer ${
+                    selectedColor === color ? 'ring-4 ring-[#AA8265]' : ''
+                  }`}
+                  style={{ backgroundColor: color }}
+                ></div>
+              ))}
+            </div>
+          </div>
           {/* Quantity Selector */}
           <div className="flex items-center gap-2 mt-6">
             <button
@@ -93,7 +148,7 @@ const DetailsPage = () => {
             Add to Cart
           </button>
 
-             <button
+          <button
             className=" ml-4 mt-6 text-[16px] text-[#F6F4F0] bg-[#AA8265] inline-flex gap-2 pt-4 pb-4 pr-8 pl-8 rounded hover:bg-[#8b6c50]"
             onClick={handleAddToWishList}
           >
@@ -101,7 +156,7 @@ const DetailsPage = () => {
           </button>
 
 
-          
+
         </div>
       </div>
 
