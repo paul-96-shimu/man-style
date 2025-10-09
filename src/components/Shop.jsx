@@ -28,7 +28,7 @@ const Shop = () => {
 
                 <div className='grid grid-cols-4 gap-[43px] '>
                     <div className='col-span-2'>
-                        <div className='flex  pt-[30px] pl-[39px] bg-[#c9c2bd] '>
+                        <div className='flex  pt-[30px] pl-[39px] '>
 
                             <div>
 

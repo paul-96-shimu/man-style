@@ -2,6 +2,7 @@ import React from 'react';
 import { useCart } from '../Context/CartContext';
 import removeIcon from '../assets/img/remove.png';
 import addIcon from '../assets/img/add.png';
+import { Link } from 'react-router';
 
 const CartPage = () => {
   const { cartItems, addToCart, decreaseQuantity, removeFromCart } = useCart();
@@ -54,9 +55,32 @@ const CartPage = () => {
       </div>
 
       {/* Total */}
-      <div className="mt-6 text-right font-bold text-xl">
-        Total Items: {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+      <div className='mt-6'>
+
+
+        <button
+
+          className="text-white font-bold  bg-[#AA8265] pt-4 pb-4 pr-8 pl-8 rounded  hover:bg-[#8b6c50] instrument-sans"
+        >
+          CHECK OUT NOW
+        </button>
+
+        <Link to="/">
+
+
+          <button
+
+            className="text-[#AA8265] font-bold  bg-white pt-4 pb-4 pr-8 pl-8 rounded   instrument-sans ml-6 border border-[#AA8265]"
+          >
+            CONTINUE SHOPPING
+          </button>
+        </Link>
+        <div className=" text-right font-bold text-xl">
+          Total Items: {cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+        </div>
       </div>
+
+
     </div>
   );
 };

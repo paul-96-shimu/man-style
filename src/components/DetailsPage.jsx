@@ -155,6 +155,14 @@ const DetailsPage = () => {
             Add to WishList
           </button>
 
+           <button
+            className=" ml-4 mt-6 text-[16px] text-[#F6F4F0] bg-[#AA8265] inline-flex gap-2 pt-4 pb-4 pr-8 pl-8 rounded hover:bg-[#8b6c50]"
+          
+          >
+            Buy Now
+          </button>
+
+
 
 
         </div>
