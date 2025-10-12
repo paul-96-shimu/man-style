@@ -9,6 +9,9 @@ import LogInPage from "../components/LogInPage";
 import DetailsPage from "../components/DetailsPage";
 import CartPage from "../components/CartPage";
 import WishListPage from "../components/WishListPage";
+import BuyNowPage from "../components/BuyNowPage";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import ShopBy from "../components/ShopBy";
 
 
 export const router = createBrowserRouter([
@@ -38,15 +41,30 @@ export const router = createBrowserRouter([
 
       {
         path: 'cart',
-        Component:CartPage
+        Component: CartPage
 
       },
 
       {
 
-        path:'wishlist',
-        Component:WishListPage
-      }
+        path: 'wishlist',
+        Component: WishListPage
+      },
+      {
+
+        path: 'shop',
+        Component: ShopBy
+      },
+      {
+
+        path: 'buynow',
+        element: (
+          <PrivateRoute>
+            <BuyNowPage />
+          </PrivateRoute>
+        )
+
+      },
 
     ]
   },

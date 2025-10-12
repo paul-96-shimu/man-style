@@ -60,10 +60,7 @@ const TopPicks = () => {
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-[#5B3E38] font-bold text-lg sm:text-xl md:text-[24px]">
                     {item.discount
-                      ? (
-                        item.price -
-                        (item.price * item.discount) / 100
-                      ).toFixed(2)
+                      ? ((item.price - (item.price * item.discount) / 100).toFixed(2))
                       : item.price}{' '}
                     {item.currency}
                   </span>

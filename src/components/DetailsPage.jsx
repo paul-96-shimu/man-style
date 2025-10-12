@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import pluse from '../assets/img/plus.png';
 import remove from '../assets/img/remove.png';
 import add from '../assets/img/add.png';
@@ -7,6 +7,10 @@ import { useCart } from '../Context/CartContext';
 import { useWishlist } from '../Context/WishListContex';
 
 const DetailsPage = () => {
+
+  const navigate = useNavigate();
+
+
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [related, setRelated] = useState([]);
@@ -17,6 +21,11 @@ const DetailsPage = () => {
 
   const { addToCart } = useCart();
   const { addToWishList } = useWishlist();
+
+  const handleBuyNow = () => {
+    navigate("/buynow", { state: { product } });
+
+  }
 
   useEffect(() => {
     // ✅ fetch single product
@@ -68,7 +77,10 @@ const DetailsPage = () => {
             {product.category} / {product.collection}
           </p>
           <div className="font-bold text-xl">
-            {product.price} {product.currency}
+            {/* {product.price} {product.currency} */}
+            <p className="font-bold mt-2">
+              Price: ${(product.price / 100).toFixed(2)} {product.currency}
+            </p>
           </div>
           {/* ⭐ Rating */}
           <p className="text-yellow-500 font-semibold">
@@ -90,8 +102,8 @@ const DetailsPage = () => {
                   key={index}
                   onClick={() => setSelectedSize(size)}
                   className={`px-3 py-1 border rounded ${selectedSize === size
-                      ? 'bg-[#AA8265] text-white'
-                      : 'bg-white text-black'
+                    ? 'bg-[#AA8265] text-white'
+                    : 'bg-white text-black'
                     }`}
                 >
                   {size}
@@ -108,9 +120,8 @@ const DetailsPage = () => {
                 <div
                   key={index}
                   onClick={() => setSelectedColor(color)}
-                  className={`w-8 h-8 rounded-full border cursor-pointer ${
-                    selectedColor === color ? 'ring-4 ring-[#AA8265]' : ''
-                  }`}
+                  className={`w-8 h-8 rounded-full border cursor-pointer ${selectedColor === color ? 'ring-4 ring-[#AA8265]' : ''
+                    }`}
                   style={{ backgroundColor: color }}
                 ></div>
               ))}
@@ -155,9 +166,9 @@ const DetailsPage = () => {
             Add to WishList
           </button>
 
-           <button
+          <button onClick={handleBuyNow}
             className=" ml-4 mt-6 text-[16px] text-[#F6F4F0] bg-[#AA8265] inline-flex gap-2 pt-4 pb-4 pr-8 pl-8 rounded hover:bg-[#8b6c50]"
-          
+
           >
             Buy Now
           </button>
