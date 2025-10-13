@@ -1,37 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const BuyNowPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { product } = location.state || {}; // 👈 DetailsPage থেকে আসা product
 
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const [isProcessing, setIsProcessing] = useState(false);
+  const { product, selectedColor, selectedSize, quantity: initialQuantity } = location.state || {};
 
+  const [quantity, setQuantity] = useState(initialQuantity || 1); // ✅ initial quantity set
+
+  // ✅ যদি product না থাকে, home এ redirect
   useEffect(() => {
     if (!product) {
-      navigate("/"); // যদি product data না থাকে, home এ পাঠাও
+      navigate("/");
     }
   }, [product, navigate]);
 
-  const handlePayment = () => {
-    if (!paymentMethod) {
-      alert("Please select a payment method!");
-      return;
+  if (!product) return null;
+
+  // ✅ Quantity Increase / Decrease
+  const handleQuantityChange = (type) => {
+    if (type === "decrease" && quantity > 1) {
+      setQuantity(quantity - 1);
+    } else if (type === "increase" && quantity < product.stock) {
+      setQuantity(quantity + 1);
     }
-
-    setIsProcessing(true);
-
-    // এখানে তুমি চাইলে backend payment gateway integrate করতে পারো
-    setTimeout(() => {
-      setIsProcessing(false);
-      alert(`Payment Successful via ${paymentMethod}! ✅`);
-      navigate("/"); // Payment শেষে home এ redirect
-    }, 2000);
   };
 
-  if (!product) return null;
+  // ✅ Price Calculation
+  const finalPrice = product.discount
+    ? (product.price - (product.price * product.discount) / 100).toFixed(2)
+    : product.price;
 
   return (
     <div className="container mx-auto mt-10 p-4 max-w-xl bg-white rounded-md shadow">
@@ -39,6 +38,7 @@ const BuyNowPage = () => {
         Buy Now
       </h1>
 
+      {/* Product Info */}
       <div className="border p-4 rounded mb-4">
         <img
           src={product.images?.[0]}
@@ -47,34 +47,57 @@ const BuyNowPage = () => {
         />
         <h2 className="font-semibold mt-2">{product.title}</h2>
         <p className="text-gray-600">{product.shortDescription}</p>
-        <p className="font-bold mt-2">
-          Price: {product.price} {product.currency}
+
+        {/* Selected Color & Size */}
+        <div className="mt-2">
+          {selectedColor && (
+            <p className="text-sm">
+              <span className="font-semibold">Color:</span> {selectedColor}
+            </p>
+          )}
+          {selectedSize && (
+            <p className="text-sm">
+              <span className="font-semibold">Size:</span> {selectedSize}
+            </p>
+          )}
+        </div>
+
+        {/* Quantity Selector */}
+        <div className="flex items-center gap-3 mt-3">
+          <button
+            onClick={() => handleQuantityChange("decrease")}
+            className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+          >
+            -
+          </button>
+          <span className="text-lg font-semibold">{quantity}</span>
+          <button
+            onClick={() => handleQuantityChange("increase")}
+            className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+          >
+            +
+          </button>
+        </div>
+
+        <p className="font-bold mt-3">
+          Total: {(finalPrice * quantity).toFixed(2)} {product.currency}
         </p>
       </div>
 
-      <h3 className="font-semibold mb-2">Select Payment Method:</h3>
-      <div className="flex flex-col gap-2">
-        {["Bkash", "Nagad", "Visa Card"].map((method) => (
-          <label key={method} className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="payment"
-              value={method}
-              checked={paymentMethod === method}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            />
-            {method}
-          </label>
-        ))}
-      </div>
-
-      <button
-        onClick={handlePayment}
-        disabled={isProcessing}
-        className="w-full mt-6 bg-[#AA8265] text-white py-3 rounded hover:bg-[#8b6c50]"
+      {/* Proceed Button */}
+      <Link
+        to="/placeorder"
+        state={{
+          product,
+          selectedColor,
+          selectedSize,
+          quantity, // ✅ updated quantity pass হচ্ছে
+        }}
       >
-        {isProcessing ? "Processing..." : `Pay with ${paymentMethod || "..."}`}
-      </button>
+        <button className="w-full mt-6 py-3 rounded text-white bg-[#AA8265] hover:bg-[#8b6c50]">
+          Proceed to Place Order
+        </button>
+      </Link>
     </div>
   );
 };

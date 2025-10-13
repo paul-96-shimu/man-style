@@ -12,6 +12,9 @@ import WishListPage from "../components/WishListPage";
 import BuyNowPage from "../components/BuyNowPage";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import ShopBy from "../components/ShopBy";
+import PlaceOrder from "../components/PlaceOrder";
+import SearchPage from "../components/SearchPage";
+
 
 
 export const router = createBrowserRouter([
@@ -55,6 +58,23 @@ export const router = createBrowserRouter([
         path: 'shop',
         Component: ShopBy
       },
+
+       {
+
+        path: 'placeorder',
+        Component: PlaceOrder
+      },
+
+
+      
+       {
+
+        path: 'search',
+        Component: SearchPage
+      },
+
+
+       
       {
 
         path: 'buynow',

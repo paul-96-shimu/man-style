@@ -42,7 +42,9 @@ const Navber = () => {
                         </h4>
 
                         <img src={long} alt="" />
-                        <img src={search} alt="" />
+                       <Link to="/search">
+                           <img src={search} alt="Search" />
+                       </Link>
                       <Link to="/wishlist"  className="relative">
                         <img src={favorite_border} alt="" />
                         {wishlistItems.length > 0 && (

@@ -22,10 +22,21 @@ const DetailsPage = () => {
   const { addToCart } = useCart();
   const { addToWishList } = useWishlist();
 
-  const handleBuyNow = () => {
-    navigate("/buynow", { state: { product } });
-
+const handleBuyNow = () => {
+  if (!selectedSize || !selectedColor) {
+    alert("Please select a size and color first!");
+    return;
   }
+
+  navigate("/buynow", {
+    state: {
+      product,
+      selectedColor,
+      selectedSize,
+      quantity,
+    },
+  });
+};
 
   useEffect(() => {
     // ✅ fetch single product
