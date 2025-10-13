@@ -14,13 +14,16 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import ShopBy from "../components/ShopBy";
 import PlaceOrder from "../components/PlaceOrder";
 import SearchPage from "../components/SearchPage";
+import ErrorPage from "../components/ErrorPage";
 
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: RootLayOut,
+    element: <RootLayOut></RootLayOut>,
+      // errorElement: <ErrorPage></ErrorPage>,
+      errorElement:<RootLayOut></RootLayOut>,
 
     children: [
 
@@ -72,7 +75,10 @@ export const router = createBrowserRouter([
         path: 'search',
         Component: SearchPage
       },
-
+{
+        path: "*", 
+        Component: ErrorPage, 
+      },
 
        
       {
