@@ -15,6 +15,8 @@ import ShopBy from "../components/ShopBy";
 import PlaceOrder from "../components/PlaceOrder";
 import SearchPage from "../components/SearchPage";
 import ErrorPage from "../components/ErrorPage";
+import DashBord from "../Layout/DashBord";
+import MyOrders from "../components/DashBoard/MyOrders";
 
 
 
@@ -22,8 +24,8 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayOut></RootLayOut>,
-      // errorElement: <ErrorPage></ErrorPage>,
-      errorElement:<RootLayOut></RootLayOut>,
+    // errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <RootLayOut></RootLayOut>,
 
     children: [
 
@@ -62,25 +64,25 @@ export const router = createBrowserRouter([
         Component: ShopBy
       },
 
-       {
+      {
 
         path: 'placeorder',
         Component: PlaceOrder
       },
 
 
-      
-       {
+
+      {
 
         path: 'search',
         Component: SearchPage
       },
-{
-        path: "*", 
-        Component: ErrorPage, 
+      {
+        path: "*",
+        Component: ErrorPage,
       },
 
-       
+
       {
 
         path: 'buynow',
@@ -117,6 +119,27 @@ export const router = createBrowserRouter([
       }
     ]
 
+
+  },
+
+  {
+
+    path: '/dashboard',
+    element:
+      <PrivateRoute>
+        <DashBord></DashBord>
+
+      </PrivateRoute>,
+
+    children: [
+      {
+
+
+        path: 'myorders',
+        Component: MyOrders
+      },
+
+    ]
 
   }
 ]);

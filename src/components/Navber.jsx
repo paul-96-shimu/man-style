@@ -29,6 +29,10 @@ const Navber = () => {
                         <NavLink to="/"><li className='text-[#B0B0B0] text-[16px]'>HOME</li></NavLink>
                         <NavLink to="/shop"><li className='text-[#B0B0B0] text-[16px]'>SHOP</li></NavLink>
                         <NavLink to="/contact"><li className='text-[#B0B0B0] text-[16px]'>CONTACT US</li></NavLink>
+
+                        {
+                            user &&<> <NavLink to="/dashboard"><li className='text-[#B0B0B0] text-[16px]'>DASHBOARD</li></NavLink></>
+                        }
                     </ul>
 
                     <div className='flex gap-[180px]'>
