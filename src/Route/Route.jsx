@@ -18,6 +18,13 @@ import ErrorPage from "../components/ErrorPage";
 import DashBord from "../Layout/DashBord";
 import MyOrders from "../components/DashBoard/MyOrders";
 
+import Mypayments from "../components/DashBoard/Mypayments";
+import AddProduct from "../components/SellerDashBoard/AddProduct";
+import MyProduct from "../components/SellerDashBoard/MyProduct";
+import OrderRecive from "../components/SellerDashBoard/OrderRecive";
+import EaringReport from "../components/SellerDashBoard/EaringReport";
+import SellerProfile from "../components/SellerDashBoard/SellerProfile";
+
 
 
 export const router = createBrowserRouter([
@@ -135,9 +142,38 @@ export const router = createBrowserRouter([
       {
 
 
-        path: 'myorders',
+        path: 'orders',
         Component: MyOrders
       },
+
+       {
+
+
+        path: 'orders',
+        Component: MyOrders
+       
+      },
+      {
+        path: 'add-product',
+        Component: AddProduct
+      },
+       {
+        path: 'products',
+        Component: MyProduct
+      },
+        {
+        path: 'orders',
+        Component: OrderRecive
+      },
+        {
+        path: 'earnings',
+        Component: EaringReport
+      },
+       {
+        path: 'settings',
+        Component: SellerProfile
+      },
+
 
     ]
 
