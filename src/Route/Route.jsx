@@ -149,8 +149,8 @@ export const router = createBrowserRouter([
        {
 
 
-        path: 'orders',
-        Component: MyOrders
+        path: 'payments',
+        Component: Mypayments
        
       },
       {
