@@ -57,7 +57,7 @@ const Navber = () => {
             <h4 className="flex gap-1">
               <span className="text-[#B0B0B0]">Hello</span>
               <span className="text-[#F6F6F6]">
-                {user?.displayName || "Guest"}
+               {user?.displayName || user?.email?.split("@")[0] || "Guest"}
               </span>
             </h4>
 

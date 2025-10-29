@@ -1,33 +1,43 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { AuthContext } from "./AuthContext/Authcontex";
 
-// Context তৈরি
+
 const WishlistContext = createContext();
 
-// Provider Component
 export const WishlistProvider = ({ children }) => {
+  const { user } = useContext(AuthContext); // 🔹 current logged-in user
   const [wishlistItems, setWishlistItems] = useState([]);
 
-  // ✅ Load wishlist from localStorage when app loads
+  // Helper → user অনুযায়ী unique storage key
+  const getStorageKey = () => `wishlistItems_${user?.email || "guest"}`;
+
+  // ✅ Load wishlist when user changes or page loads
   useEffect(() => {
-    const savedWishlist = localStorage.getItem("wishlistItems");
+    if (!user) {
+      setWishlistItems([]);
+      return;
+    }
+
+    const savedWishlist = localStorage.getItem(getStorageKey());
     if (savedWishlist && savedWishlist !== "[]") {
-      console.log("💖 Loading wishlist from localStorage:", JSON.parse(savedWishlist));
+      console.log("💖 Loaded wishlist for:", user.email);
       setWishlistItems(JSON.parse(savedWishlist));
     } else {
-      console.log("💖 No saved wishlist found.");
+      console.log("💖 No saved wishlist for user:", user.email);
+      setWishlistItems([]);
     }
-  }, []);
+  }, [user]);
 
-  // ✅ Save wishlist to localStorage whenever it changes
+  // ✅ Save wishlist when it changes
   useEffect(() => {
-    if (wishlistItems.length > 0) {
-      console.log("💾 Saving wishlist:", wishlistItems);
-      localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
-    } else {
-      console.log("🧹 Wishlist empty, removing from localStorage");
-      localStorage.removeItem("wishlistItems");
+    if (user) {
+      if (wishlistItems.length > 0) {
+        localStorage.setItem(getStorageKey(), JSON.stringify(wishlistItems));
+      } else {
+        localStorage.removeItem(getStorageKey());
+      }
     }
-  }, [wishlistItems]);
+  }, [wishlistItems, user]);
 
   // ➕ Add to wishlist
   const addToWishList = (product) => {

@@ -1,63 +1,70 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { AuthContext } from "./AuthContext/Authcontex";
+
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const { user } = useContext(AuthContext); // logged-in user
   const [cartItems, setCartItems] = useState([]);
 
-  // ✅ Load cart data from localStorage (only once)
+  // Helper function → user অনুযায়ী key বানাবে
+  const getStorageKey = () => `cartItems_${user?.email || "guest"}`;
+
+  // ✅ Load cart data when user changes or page loads
   useEffect(() => {
-    const savedCart = localStorage.getItem("cartItems");
-    if (savedCart && savedCart !== "[]") {
-      console.log("🧾 Loading saved cart:", JSON.parse(savedCart));
-      setCartItems(JSON.parse(savedCart));
-    } else {
-      console.log("🧾 No saved cart or empty cart found.");
+    if (!user) {
+      setCartItems([]); // logout করলে empty করো
+      return;
     }
-  }, []);
+
+    const savedCart = localStorage.getItem(getStorageKey());
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+      console.log("🛒 Loaded user cart:", user.email);
+    } else {
+      setCartItems([]);
+      console.log("🆕 No saved cart for user:", user.email);
+    }
+  }, [user]);
 
   // ✅ Save cart data to localStorage whenever it changes
   useEffect(() => {
-    if (cartItems.length > 0) {
-      console.log("💾 Saving cart to localStorage:", cartItems);
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    } else {
-      // Empty হলে overwrite কোরো না, শুধুমাত্র remove করো
-      console.log("🧹 Cart empty, removing from localStorage");
-      localStorage.removeItem("cartItems");
+    if (user) {
+      localStorage.setItem(getStorageKey(), JSON.stringify(cartItems));
     }
-  }, [cartItems]);
+  }, [cartItems, user]);
 
   // 🛒 Add item to cart
   const addToCart = (product) => {
     const existingItem = cartItems.find((item) => item._id === product._id);
     if (existingItem) {
-      const updatedCart = cartItems.map((item) =>
-        item._id === product._id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+      setCartItems(
+        cartItems.map((item) =>
+          item._id === product._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
       );
-      setCartItems(updatedCart);
     } else {
-      const newCart = [...cartItems, { ...product, quantity: 1 }];
-      setCartItems(newCart);
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
   };
 
   // ➖ Decrease one quantity
   const decreaseQuantity = (id) => {
-    const updatedCart = cartItems
-      .map((item) =>
-        item._id === id ? { ...item, quantity: item.quantity - 1 } : item
-      )
-      .filter((item) => item.quantity > 0);
-    setCartItems(updatedCart);
+    setCartItems(
+      cartItems
+        .map((item) =>
+          item._id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
   };
 
-  // ❌ Remove item completely
+  // ❌ Remove item from cart completely
   const removeFromCart = (id) => {
-    const updatedCart = cartItems.filter((item) => item._id !== id);
-    setCartItems(updatedCart);
+    setCartItems(cartItems.filter((item) => item._id !== id));
   };
 
   // 🧮 Total quantity
