@@ -1,5 +1,12 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
+import PaymentFrom from "./PaymentFrom";
+
+
+const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh')
 
 const PlaceOrder = () => {
   const location = useLocation();
@@ -42,7 +49,7 @@ const PlaceOrder = () => {
       </div>
 
       <h3 className="font-semibold mb-2">Select Payment Method:</h3>
-      <div className="flex flex-col gap-2">
+      {/* <div className="flex flex-col gap-2">
         {["Bkash", "Nagad", "Visa Card"].map((method) => (
           <label key={method} className="flex items-center gap-2">
             <input
@@ -55,14 +62,19 @@ const PlaceOrder = () => {
             {method}
           </label>
         ))}
-      </div>
+      </div> */}
+
+      <Elements stripe={stripePromise}>
+
+        <PaymentFrom></PaymentFrom>
+
+      </Elements>
 
       <button
         onClick={handlePayment}
         disabled={isProcessing}
-        className={`w-full mt-6 py-3 rounded text-white transition-all ${
-          isProcessing ? "bg-gray-400 cursor-not-allowed" : "bg-[#AA8265] hover:bg-[#8b6c50]"
-        }`}
+        className={`w-full mt-6 py-3 rounded text-white transition-all ${isProcessing ? "bg-gray-400 cursor-not-allowed" : "bg-[#AA8265] hover:bg-[#8b6c50]"
+          }`}
       >
         {isProcessing ? "Processing..." : paymentMethod ? `Pay with ${paymentMethod}` : "Select Payment Method"}
       </button>
