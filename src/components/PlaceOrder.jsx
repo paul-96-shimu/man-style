@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router";
 import PaymentFrom from "./PaymentFrom";
 
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh')
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_key)
 
 const PlaceOrder = () => {
   const location = useLocation();
@@ -36,7 +36,7 @@ const PlaceOrder = () => {
       navigate("/dashboard/orders"); // redirect to My Orders after payment
     }, 2000);
   };
-
+  if (!product) return <p>No product found</p>;
   return (
     <div className="container mx-auto mt-10 p-4 max-w-xl bg-white rounded-md shadow">
       <h1 className="text-2xl font-bold mb-4 text-center text-[#AA8265]">Place Order</h1>
@@ -66,18 +66,18 @@ const PlaceOrder = () => {
 
       <Elements stripe={stripePromise}>
 
-        <PaymentFrom></PaymentFrom>
+        <PaymentFrom product={product}></PaymentFrom>
 
       </Elements>
 
-      <button
+      {/* <button
         onClick={handlePayment}
         disabled={isProcessing}
         className={`w-full mt-6 py-3 rounded text-white transition-all ${isProcessing ? "bg-gray-400 cursor-not-allowed" : "bg-[#AA8265] hover:bg-[#8b6c50]"
           }`}
       >
         {isProcessing ? "Processing..." : paymentMethod ? `Pay with ${paymentMethod}` : "Select Payment Method"}
-      </button>
+      </button> */}
     </div>
   );
 };

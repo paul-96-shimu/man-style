@@ -63,6 +63,6 @@ const MyPayments = () => {
   );
 };
 
-// module-66-2 milestone 12
+
 
 export default MyPayments;
