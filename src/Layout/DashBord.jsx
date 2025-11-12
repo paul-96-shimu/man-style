@@ -61,13 +61,16 @@ const DashBord = () => {
           <h2 className="text-xl font-semibold mb-4">Dashboard Menu</h2>
           {/* Admin Dashboard */}
           <li><Link to="/dashboard/admin">Admin Dashboard</Link></li>
-
-          {/* Seller Dashboard */}
+          <li><Link to="/dashboard/user">All user</Link></li>
+          <li><Link to="/dashboard/pending">Pending Product</Link></li>
+          <li><Link to="/dashboard/approved">Approved Product</Link></li>
+          {/* 
+          Seller Dashboard
           <li><Link to="/dashboard/add-product">Add Product</Link></li>
           <li><Link to="/dashboard/products">My Products</Link></li>
           <li><Link to="/dashboard/orders">Orders Received</Link></li>
           <li><Link to="/dashboard/earnings">Earnings Report</Link></li>
-          <li><Link to="/dashboard/settings">Seller Settings</Link></li>
+          <li><Link to="/dashboard/settings">Seller Settings</Link></li> */}
 
           {/* user dashboard */}
           <li><Link to="/dashboard/orders">My Orders</Link></li>

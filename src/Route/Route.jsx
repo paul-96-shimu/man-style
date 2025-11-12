@@ -24,6 +24,9 @@ import MyProduct from "../components/SellerDashBoard/MyProduct";
 import OrderRecive from "../components/SellerDashBoard/OrderRecive";
 import EaringReport from "../components/SellerDashBoard/EaringReport";
 import SellerProfile from "../components/SellerDashBoard/SellerProfile";
+import AllUser from "../components/DashBoard/AllUser";
+import PendingProduct from "../components/DashBoard/PendingProduct";
+import ApproveProduct from "../components/DashBoard/ApproveProduct";
 
 
 
@@ -146,30 +149,45 @@ export const router = createBrowserRouter([
         Component: MyOrders
       },
 
-       {
-
-
+      {
         path: 'payments',
         Component: Mypayments
-       
+
+      },
+
+      {
+        path: 'user',
+        Component: AllUser
+
+      },
+
+      {
+        path: 'pending',
+        Component: PendingProduct
+
+      },
+      {
+        path: 'approved',
+        Component: ApproveProduct
+
       },
       {
         path: 'add-product',
         Component: AddProduct
       },
-       {
+      {
         path: 'products',
         Component: MyProduct
       },
-        {
+      {
         path: 'orders',
         Component: OrderRecive
       },
-        {
+      {
         path: 'earnings',
         Component: EaringReport
       },
-       {
+      {
         path: 'settings',
         Component: SellerProfile
       },

@@ -1,6 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
+import { AuthContext } from "../Context/AuthContext/Authcontex";
+
 
 const PaymentForm = ({ product }) => {
   const stripe = useStripe();
@@ -9,28 +12,24 @@ const PaymentForm = ({ product }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
   const [processing, setProcessing] = useState(false);
+  const navigate = useNavigate();
+
+  // 🔹 ইউজার কনটেক্সট থেকে ইউজারের তথ্য নিচ্ছি
+  const { user } = useContext(AuthContext);
 
   // 🔹 Backend থেকে clientSecret আনবে
   useEffect(() => {
     if (product?.price) {
-      console.log("🧾 Sending price to backend:", product.price);
-
       axios
         .post("http://localhost:3000/create-payment-intent", { price: product.price })
         .then((res) => {
-          console.log("✅ Backend Response:", res.data);
           if (res.data?.clientSecret) {
             setClientSecret(res.data.clientSecret);
-            console.log("🎯 Client Secret set:", res.data.clientSecret);
           } else {
             console.error("⚠️ No clientSecret returned from backend");
           }
         })
-        .catch((err) =>
-          console.error("❌ Error creating payment intent:", err)
-        );
-    } else {
-      console.warn("⚠️ No product price found!");
+        .catch((err) => console.error("❌ Error creating payment intent:", err));
     }
   }, [product]);
 
@@ -44,7 +43,6 @@ const PaymentForm = ({ product }) => {
 
     if (!clientSecret) {
       setError("Client secret missing!");
-      console.error("❌ Missing clientSecret in frontend!");
       return;
     }
 
@@ -59,45 +57,57 @@ const PaymentForm = ({ product }) => {
     setSuccess("");
 
     try {
-      // Step 1: create payment method
-      const { error: pmError, paymentMethod } = await stripe.createPaymentMethod({
+      // Step 1️⃣: Create payment method
+      const { error: pmError } = await stripe.createPaymentMethod({
         type: "card",
         card,
       });
 
       if (pmError) {
-        console.error("❌ PaymentMethod Error:", pmError);
         setError(pmError.message);
         setProcessing(false);
         return;
       }
 
-      console.log("✅ PaymentMethod created:", paymentMethod.id);
-
-      // Step 2: confirm card payment
+      // Step 2️⃣: Confirm card payment
       const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
         clientSecret,
         {
           payment_method: {
             card,
             billing_details: {
-              name: "Test User", // প্রয়োজনে user.name বসাও
+              name: user?.displayName || "Unknown User",
+              email: user?.email || "unknown@example.com",
             },
           },
         }
       );
 
-      console.log("📤 Stripe confirmCardPayment response:", { paymentIntent, confirmError });
-
       if (confirmError) {
         setError(confirmError.message);
-        console.error("❌ Payment Confirmation Error:", confirmError);
       } else if (paymentIntent?.status === "succeeded") {
         setSuccess("✅ Payment Successful!");
         setError("");
-        console.log("🎉 Payment Success:", paymentIntent);
+
+        // Step 3️⃣: Save payment info to backend
+        const paymentInfo = {
+          userEmail: user?.email,
+          userName: user?.displayName || "Anonymous",
+          productName: product.title,
+          price: product.price,
+          transactionId: paymentIntent.id,
+          status: "paid",
+          date: new Date(),
+        };
+
+        await axios.post("http://localhost:3000/payments", paymentInfo);
+
+        // Step 4️⃣: Redirect to My Orders page
+        setTimeout(() => {
+          navigate("/dashboard/orders");
+        }, 1500);
       } else {
-        console.warn("⚠️ Payment not successful. Status:", paymentIntent?.status);
+        setError("Payment not successful.");
       }
     } catch (err) {
       setError("Unexpected error occurred!");
@@ -110,7 +120,7 @@ const PaymentForm = ({ product }) => {
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-center">
-        Pay for {product?.name || "Product"}
+        Pay for {product?.title || "Product"}
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
