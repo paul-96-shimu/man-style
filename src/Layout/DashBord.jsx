@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
+import useUserRole from '../components/Hooks/useUserRole';
 
 const DashBord = () => {
+  const { role, roleLoading } = useUserRole()
+
+  console.log("👑 User Role in DashBord:", role);
+
   return (
     <div className="drawer lg:drawer-open my-6 container mx-auto">
       {/* Checkbox for mobile drawer toggle */}
@@ -59,25 +64,26 @@ const DashBord = () => {
         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-6 space-y-2 text-[#5B3E38]">
           <h2 className="text-xl font-semibold mb-4">Dashboard Menu</h2>
-          {/* Admin Dashboard */}
-          <li><Link to="/dashboard/admin">Admin Dashboard</Link></li>
-          <li><Link to="/dashboard/user">All user</Link></li>
-          <li><Link to="/dashboard/pending">Pending Product</Link></li>
-          <li><Link to="/dashboard/approved">Approved Product</Link></li>
-          {/* 
-          Seller Dashboard
-          <li><Link to="/dashboard/add-product">Add Product</Link></li>
-          <li><Link to="/dashboard/products">My Products</Link></li>
-          <li><Link to="/dashboard/orders">Orders Received</Link></li>
-          <li><Link to="/dashboard/earnings">Earnings Report</Link></li>
-          <li><Link to="/dashboard/settings">Seller Settings</Link></li> */}
 
-          {/* user dashboard */}
-          <li><Link to="/dashboard/orders">My Orders</Link></li>
-          <li><Link to="/dashboard/payments">My Payments</Link></li>
-          {/* <li><Link to="/dashboard/user/wishlist">My Wishlist</Link></li>
-          <li><Link to="/dashboard/user/cart">Add to cart</Link></li> */}
-          <li><Link to="/dashboard/settings">Settings</Link></li>
+          {/* ✅ Admin Dashboard */}
+          {!roleLoading && role === "admin" && (
+            <>
+              <li><Link to="/dashboard/admin">Admin Dashboard</Link></li>
+              <li><Link to="/dashboard/user">All user</Link></li>
+              <li><Link to="/dashboard/pending">Pending Product</Link></li>
+              <li><Link to="/dashboard/approved">Approved Product</Link></li>
+              <li><Link to="/dashboard/make-admin">Make Admin</Link></li>
+            </>
+          )}
+
+          {/* ✅ User Dashboard */}
+          {!roleLoading && role === "user" && (
+            <>
+              <li><Link to="/dashboard/orders">My Orders</Link></li>
+              <li><Link to="/dashboard/payments">My Payments</Link></li>
+              <li><Link to="/dashboard/settings">Settings</Link></li>
+            </>
+          )}
         </ul>
       </div>
     </div>

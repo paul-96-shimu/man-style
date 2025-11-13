@@ -27,6 +27,9 @@ import SellerProfile from "../components/SellerDashBoard/SellerProfile";
 import AllUser from "../components/DashBoard/AllUser";
 import PendingProduct from "../components/DashBoard/PendingProduct";
 import ApproveProduct from "../components/DashBoard/ApproveProduct";
+import MakeAdmin from "../components/DashBoard/MakeAdmin";
+import ForbiddenPage from "../components/ForbiddenPage";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -51,6 +54,15 @@ export const router = createBrowserRouter([
         path: 'contact',
         Component: ContactUs,
       },
+
+
+
+      {
+        path: 'forbiddenpage',
+        Component: ForbiddenPage,
+      },
+
+
 
       {
         path: "product/:id",
@@ -142,6 +154,48 @@ export const router = createBrowserRouter([
       </PrivateRoute>,
 
     children: [
+
+
+      {
+
+
+        path: 'make-admin',
+        element: <AdminRoute>
+
+          <MakeAdmin></MakeAdmin>
+        </AdminRoute>
+      },
+
+
+      {
+        path: 'pending',
+
+
+        element: <AdminRoute>
+
+          <PendingProduct></PendingProduct>
+        </AdminRoute>
+
+      },
+
+
+      {
+        path: 'approved',
+
+        element: <AdminRoute><ApproveProduct></ApproveProduct></AdminRoute>
+
+      },
+
+
+      {
+        path: 'user',
+
+        element: <AdminRoute>
+          <AllUser></AllUser>
+        </AdminRoute>
+
+      },
+
       {
 
 
@@ -155,22 +209,10 @@ export const router = createBrowserRouter([
 
       },
 
-      {
-        path: 'user',
-        Component: AllUser
 
-      },
 
-      {
-        path: 'pending',
-        Component: PendingProduct
 
-      },
-      {
-        path: 'approved',
-        Component: ApproveProduct
 
-      },
       {
         path: 'add-product',
         Component: AddProduct
