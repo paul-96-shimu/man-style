@@ -30,6 +30,7 @@ import ApproveProduct from "../components/DashBoard/ApproveProduct";
 import MakeAdmin from "../components/DashBoard/MakeAdmin";
 import ForbiddenPage from "../components/ForbiddenPage";
 import AdminRoute from "./AdminRoute";
+import Updated from "../components/DashBoard/Updated";
 
 
 
@@ -203,6 +204,14 @@ export const router = createBrowserRouter([
         Component: MyOrders
       },
 
+
+       {
+
+
+        path: 'update-order/:id',
+        Component: Updated
+      },
+
       {
         path: 'payments',
         Component: Mypayments
@@ -221,10 +230,7 @@ export const router = createBrowserRouter([
         path: 'products',
         Component: MyProduct
       },
-      {
-        path: 'orders',
-        Component: OrderRecive
-      },
+      
       {
         path: 'earnings',
         Component: EaringReport

@@ -68,7 +68,7 @@ const DashBord = () => {
           {/* ✅ Admin Dashboard */}
           {!roleLoading && role === "admin" && (
             <>
-              <li><Link to="/dashboard/admin">Admin Dashboard</Link></li>
+            
               <li><Link to="/dashboard/user">All user</Link></li>
               <li><Link to="/dashboard/pending">Pending Product</Link></li>
               <li><Link to="/dashboard/approved">Approved Product</Link></li>
