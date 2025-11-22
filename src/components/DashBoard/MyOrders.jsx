@@ -42,6 +42,7 @@ const MyOrders = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">My Orders</h1>
+
       <ul>
         {orders.map((order) => (
           <li
@@ -58,6 +59,15 @@ const MyOrders = () => {
 
             {/* Buttons */}
             <div className="flex gap-3">
+              
+              {/* View Button */}
+              <Link
+                to={`/dashboard/orderdetails/${order._id}`}
+                className="bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600"
+              >
+                View
+              </Link>
+
               {/* Update Button */}
               <Link
                 to={`/dashboard/update-order/${order._id}`}
@@ -73,6 +83,14 @@ const MyOrders = () => {
               >
                 Delete
               </button>
+
+              {/* Review Button */}
+              <Link
+                to={`/dashboard/review/${order._id}`}
+                className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+              >
+                Review
+              </Link>
             </div>
           </li>
         ))}

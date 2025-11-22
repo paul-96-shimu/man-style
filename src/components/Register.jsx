@@ -20,9 +20,10 @@ const Register = () => {
                 const user = result.user;
                 // MongoDB তে save করা
                 axios.post(`${API_BASE}/users`, {
-                    name: user.displayName,
+                    name: user.displayName || "User",
                     email: user.email,
-                    image: user.photoURL
+                    phone: "",               // Google Sign-in এ phone পাওয়া যায় না
+                    image: user.photoURL || ""
                 })
                 .then(() => {
                     Swal.fire("Success!", "Google Sign-in successful 🎉", "success");
@@ -37,6 +38,8 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
+        const phone = form.phone.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -45,8 +48,9 @@ const Register = () => {
                 const user = result.user;
                 // MongoDB তে save করা
                 axios.post(`${API_BASE}/users`, {
-                    name: user.displayName || "User",
-                    email: user.email,
+                    name: name,          // Form থেকে
+                    email: user.email,   // Firebase user থেকে
+                    phone: phone,        // Form থেকে
                     image: user.photoURL || ""
                 })
                 .then(() => {
@@ -87,8 +91,10 @@ const Register = () => {
                                 <img src={line} alt="" />or register with Email<img src={line} alt="" />
                             </div>
 
-                            <input type="email" name='email' className="border p-4 mt-[20px]" placeholder="Email" />
-                            <input type="password" name='password' className="border p-4 mt-[20px]" placeholder="Password" />
+                            <input type="text" name='name' className="border p-4 mt-[20px]" placeholder="Name" required />
+                            <input type="text" name='phone' className="border p-4 mt-[20px]" placeholder="Phone" required />
+                            <input type="email" name='email' className="border p-4 mt-[20px]" placeholder="Email" required />
+                            <input type="password" name='password' className="border p-4 mt-[20px]" placeholder="Password" required />
 
                             <div className="flex items-center justify-between mt-5">
                                 <label className="flex items-center gap-2">

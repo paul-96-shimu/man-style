@@ -16,6 +16,10 @@ const BuyNowPage = () => {
   const [quantity, setQuantity] = useState(initialQuantity || 1);
   const [loading, setLoading] = useState(false);
 
+  // Name & Phone state for manual input
+  const [name, setName] = useState(user?.displayName || "");
+  const [phone, setPhone] = useState("");
+
   if (!product) {
     toast.error("⚠️ No product found!");
     navigate("/");
@@ -38,7 +42,14 @@ const BuyNowPage = () => {
       return;
     }
 
+    if (!name || !phone) {
+      toast.error("Please enter your name and phone number.");
+      return;
+    }
+
     const orderData = {
+      userName: name,
+      phone: phone,
       userEmail: user.email,
       productId: product._id,
       title: product.title,
@@ -50,6 +61,8 @@ const BuyNowPage = () => {
       currency: product.currency || "BDT",
       orderDate: new Date(),
       status: "pending",
+      paymentStatus: "Paid", // যদি card payment সফল হয়
+      paidAmount: parseFloat(finalPrice) * quantity // successful payment amount
     };
 
     try {
@@ -97,7 +110,31 @@ const BuyNowPage = () => {
         <p className="font-bold mt-3">Total: {(parseFloat(finalPrice) * quantity).toFixed(2)} {product.currency || "BDT"}</p>
       </div>
 
-      <button onClick={handlePlaceOrder} disabled={loading} className="w-full mt-6 py-3 rounded text-white bg-[#AA8265] hover:bg-[#8b6c50]">
+      {/* Name & Phone Input */}
+      {!user?.displayName && (
+        <div className="border p-4 rounded mb-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border p-2 w-full mb-3 rounded"
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="border p-2 w-full rounded"
+          />
+        </div>
+      )}
+
+      <button
+        onClick={handlePlaceOrder}
+        disabled={loading}
+        className="w-full mt-6 py-3 rounded text-white bg-[#AA8265] hover:bg-[#8b6c50]"
+      >
         {loading ? "Placing Order..." : "Proceed to Place Order"}
       </button>
     </div>

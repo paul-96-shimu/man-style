@@ -1,93 +1,71 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router';
-import useUserRole from '../components/Hooks/useUserRole';
+import React, { useContext } from "react";
+import { Link, Outlet } from "react-router";
+import { AuthContext } from "../Context/AuthContext/Authcontex";
+import useUserRole from "../components/Hooks/useUserRole";
+import Navber from "../components/Navber";
 
-const DashBord = () => {
-  const { role, roleLoading } = useUserRole()
 
-  console.log("👑 User Role in DashBord:", role);
+
+const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const { role, roleLoading } = useUserRole();
 
   return (
-    <div className="drawer lg:drawer-open my-6 container mx-auto">
-      {/* Checkbox for mobile drawer toggle */}
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      {/* Navbar */}
+    <Navber></Navber>
 
-      {/* Main Content Area */}
-      <div className="drawer-content flex flex-col min-h-screen bg-gray-50">
+      {/* Drawer */}
+      <div className="drawer lg:drawer-open flex-1">
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
 
-        {/* 🔹 Top Navbar */}
-        <div className="navbar bg-[#AA8265] text-white px-4">
-          {/* Mobile Menu Button */}
-          <div className="flex-none lg:hidden">
-            <label
-              htmlFor="my-drawer-3"
-              aria-label="open sidebar"
-              className="btn btn-square btn-ghost text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block h-6 w-6 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </label>
-          </div>
-
-          {/* Logo / Title */}
-          <div className="flex-1 text-lg font-semibold">
-            My Dashboard
-          </div>
-
-          {/* Desktop Nav Menu (optional) */}
-          <div className="hidden lg:flex space-x-4">
-            <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/shop" className="hover:underline">Shop</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
-          </div>
+        {/* Main content */}
+        <div className="drawer-content p-6 mt-0">
+          <Outlet />
         </div>
 
-        {/* 🔸 Page Content */}
-        <div className="p-6 flex-1">
-          <Outlet /> {/* Nested routes will render here */}
+        {/* Sidebar */}
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+          <ul className="menu bg-base-200 min-h-full w-80 p-6 space-y-2 text-[#5B3E38]">
+            {/* ✅ User Info on top */}
+            {user && (
+              <div className="p-4 text-center border-b mb-4">
+                <img
+                  src={user.photoURL || "/default-profile.png"}
+                  alt="User"
+                  className="w-16 h-16 mx-auto rounded-full"
+                />
+                <p className="mt-2 font-semibold">{user.displayName || "User"}</p>
+                <p className="text-sm text-gray-500">{user.email}</p>
+              </div>
+            )}
+
+            <h2 className="text-xl font-semibold mb-4">Dashboard Menu</h2>
+
+            {!roleLoading && role === "admin" && (
+              <>
+                <li><Link to="/dashboard/user">All Users</Link></li>
+                <li><Link to="/dashboard/pending">Pending Product</Link></li>
+                <li><Link to="/dashboard/approved">Approved Product</Link></li>
+                <li><Link to="/dashboard/make-admin">Make Admin</Link></li>
+                <li><Link to="/dashboard/profile">Eidit Profile</Link></li>
+              </>
+            )}
+
+            {!roleLoading && role === "user" && (
+              <>
+                <li><Link to="/dashboard/orders">My Orders</Link></li>
+                <li><Link to="/dashboard/payments">My Payments</Link></li>
+                <li><Link to="/dashboard/password">Change Password</Link></li>
+                <li><Link to="/dashboard/profile">Eidit Profile</Link></li>
+              </>
+            )}
+          </ul>
         </div>
-      </div>
-
-      {/* 🔹 Sidebar */}
-      <div className="drawer-side">
-        <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu bg-base-200 min-h-full w-80 p-6 space-y-2 text-[#5B3E38]">
-          <h2 className="text-xl font-semibold mb-4">Dashboard Menu</h2>
-
-          {/* ✅ Admin Dashboard */}
-          {!roleLoading && role === "admin" && (
-            <>
-            
-              <li><Link to="/dashboard/user">All user</Link></li>
-              <li><Link to="/dashboard/pending">Pending Product</Link></li>
-              <li><Link to="/dashboard/approved">Approved Product</Link></li>
-              <li><Link to="/dashboard/make-admin">Make Admin</Link></li>
-            </>
-          )}
-
-          {/* ✅ User Dashboard */}
-          {!roleLoading && role === "user" && (
-            <>
-              <li><Link to="/dashboard/orders">My Orders</Link></li>
-              <li><Link to="/dashboard/payments">My Payments</Link></li>
-              <li><Link to="/dashboard/settings">Settings</Link></li>
-            </>
-          )}
-        </ul>
       </div>
     </div>
   );
 };
 
-export default DashBord;
+export default Dashboard;
