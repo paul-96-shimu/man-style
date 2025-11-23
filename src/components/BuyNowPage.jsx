@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthContext/Authcontex";
@@ -16,9 +16,23 @@ const BuyNowPage = () => {
   const [quantity, setQuantity] = useState(initialQuantity || 1);
   const [loading, setLoading] = useState(false);
 
-  // Name & Phone state for manual input
   const [name, setName] = useState(user?.displayName || "");
   const [phone, setPhone] = useState("");
+
+  const [addresses, setAddresses] = useState([]);
+  const [selectedAddressId, setSelectedAddressId] = useState("");
+
+  useEffect(() => {
+    if (user?.email) {
+      // Fetch user's addresses
+      axios.get(`http://localhost:3000/addresses/${user.email}`)
+        .then(res => {
+          setAddresses(res.data);
+          if (res.data.length) setSelectedAddressId(res.data[0]._id); // default first address
+        })
+        .catch(err => console.error(err));
+    }
+  }, [user]);
 
   if (!product) {
     toast.error("⚠️ No product found!");
@@ -47,6 +61,14 @@ const BuyNowPage = () => {
       return;
     }
 
+    // Get selected address object
+    const selectedAddress = addresses.find(addr => addr._id === selectedAddressId);
+
+    if (!selectedAddress) {
+      toast.error("Please select an address!");
+      return;
+    }
+
     const orderData = {
       userName: name,
       phone: phone,
@@ -61,8 +83,9 @@ const BuyNowPage = () => {
       currency: product.currency || "BDT",
       orderDate: new Date(),
       status: "pending",
-      paymentStatus: "Paid", // যদি card payment সফল হয়
-      paidAmount: parseFloat(finalPrice) * quantity // successful payment amount
+      paymentStatus: "Paid",
+      paidAmount: parseFloat(finalPrice) * quantity,
+      address: selectedAddress // 🔥 include the full address object
     };
 
     try {
@@ -71,8 +94,6 @@ const BuyNowPage = () => {
 
       if (res.data?.success) {
         toast.success("✅ Order placed successfully!");
-
-        // navigate to PlaceOrder page with product & orderId state
         setTimeout(() => {
           navigate("/placeorder", { state: { product, orderId: res.data.orderId } });
         }, 500);
@@ -109,6 +130,26 @@ const BuyNowPage = () => {
 
         <p className="font-bold mt-3">Total: {(parseFloat(finalPrice) * quantity).toFixed(2)} {product.currency || "BDT"}</p>
       </div>
+
+      {/* Address Selection */}
+      {addresses.length > 0 ? (
+        <div className="border p-4 rounded mb-4">
+          <label className="font-semibold mb-2 block">Select Address:</label>
+          <select
+            value={selectedAddressId}
+            onChange={(e) => setSelectedAddressId(e.target.value)}
+            className="w-full border p-2 rounded"
+          >
+            {addresses.map(addr => (
+              <option key={addr._id} value={addr._id}>
+                {addr.fullName} - {addr.address}, {addr.city}
+              </option>
+            ))}
+          </select>
+        </div>
+      ) : (
+        <p className="text-red-500 mb-4">No saved addresses found. Please add an address first.</p>
+      )}
 
       {/* Name & Phone Input */}
       {!user?.displayName && (

@@ -23,18 +23,18 @@ const MyOrders = () => {
   }, [user]);
 
   // Delete Order
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this order?");
-    if (!confirmDelete) return;
+  // const handleDelete = async (id) => {
+  //   const confirmDelete = window.confirm("Are you sure you want to delete this order?");
+  //   if (!confirmDelete) return;
 
-    try {
-      await axios.delete(`http://localhost:3000/orders/delete/${id}`);
-      setOrders(orders.filter((order) => order._id !== id));
-      alert("Order deleted successfully!");
-    } catch (error) {
-      alert("Failed to delete the order.", error);
-    }
-  };
+  //   try {
+  //     await axios.delete(`http://localhost:3000/orders/delete/${id}`);
+  //     setOrders(orders.filter((order) => order._id !== id));
+  //     alert("Order deleted successfully!");
+  //   } catch (error) {
+  //     alert("Failed to delete the order.", error);
+  //   }
+  // };
 
   if (loading) return <p>Loading...</p>;
   if (!orders.length) return <p>No orders found.</p>;
@@ -47,20 +47,34 @@ const MyOrders = () => {
         {orders.map((order) => (
           <li
             key={order._id}
-            className="border p-4 mb-3 rounded shadow flex justify-between items-start"
+            className="border p-4 mb-3 rounded shadow flex flex-col md:flex-row justify-between items-start"
           >
             {/* Order Info */}
-            <div>
+            <div className="mb-4 md:mb-0">
+
+
+              {/* 🔥 Display Address directly from order */}
+              {order.address && (
+                <div className="mt-2 p-2 border rounded bg-gray-50">
+                  <p><strong>Delivery Address:</strong></p>
+                  <p>{order.address.fullName}</p>
+                  <p>{order.address.address}</p>
+                  <p>{order.address.city}, {order.address.country}</p>
+                </div>
+              )}
+
+
+
+              <p><strong>Order ID:</strong> {order._id}</p>
               <p><strong>Title:</strong> {order.title}</p>
               <p><strong>Quantity:</strong> {order.quantity}</p>
               <p><strong>Total:</strong> {order.totalPrice} {order.currency}</p>
               <p><strong>Status:</strong> {order.status}</p>
+
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-3">
-              
-              {/* View Button */}
+            <div className="flex gap-3 flex-wrap">
               <Link
                 to={`/dashboard/orderdetails/${order._id}`}
                 className="bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600"
@@ -68,23 +82,20 @@ const MyOrders = () => {
                 View
               </Link>
 
-              {/* Update Button */}
-              <Link
+              {/* <Link
                 to={`/dashboard/update-order/${order._id}`}
                 className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
               >
                 Update
-              </Link>
+              </Link> */}
 
-              {/* Delete Button */}
-              <button
+              {/* <button
                 onClick={() => handleDelete(order._id)}
                 className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
               >
                 Delete
-              </button>
+              </button> */}
 
-              {/* Review Button */}
               <Link
                 to={`/dashboard/review/${order._id}`}
                 className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"

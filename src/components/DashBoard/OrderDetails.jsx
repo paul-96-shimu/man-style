@@ -20,7 +20,7 @@ const OrderDetails = () => {
             {/* Breadcrumb */}
             <div className="text-sm mb-4 text-gray-600">
                 <span className="hover:text-blue-500 cursor-pointer">Account</span> /
-                <span className="hover:text-blue-500 cursor-pointer ml-1">Order History</span> /
+            <Link to="/dashboard/orders" className="hover:text-blue-500 cursor-pointer ml-1">Order History</Link>
                 <span className="text-blue-600 font-medium ml-1">Order Information</span>
             </div>
 
