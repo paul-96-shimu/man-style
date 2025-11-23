@@ -57,6 +57,7 @@ const Dashboard = () => {
               <>
                 <li><Link to="/dashboard/orders">My Orders</Link></li>
                 <li><Link to="/dashboard/payments">My Payments</Link></li>
+                 <li><Link to="/dashboard/address">Address</Link></li>
                 <li><Link to="/dashboard/password">Change Password</Link></li>
                 <li><Link to="/dashboard/profile">Eidit Profile</Link></li>
               </>

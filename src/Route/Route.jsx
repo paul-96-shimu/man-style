@@ -35,6 +35,7 @@ import Review from "../components/DashBoard/Review";
 import OrderDetails from "../components/DashBoard/OrderDetails";
 import RoleBaseprofile from "../components/Profile/RoleBaseprofile";
 import ChangePassword from "../components/DashBoard/ChangePassword";
+import Address from "../components/DashBoard/Address";
 
 
 
@@ -254,6 +255,11 @@ export const router = createBrowserRouter([
       {
         path: 'password',
         Component: ChangePassword
+
+      },
+      {
+        path: 'address',
+        Component: Address
 
       },
 
