@@ -8,7 +8,7 @@ import long from "../assets/img/long.png";
 import search from "../assets/img/search.png";
 import favorite_border from "../assets/img/favorite_border.png";
 import shopping from "../assets/img/shopping_cart.png";
-import img from "../assets/img/more button.png";
+// import img from "../assets/img/more button.png";
 import userIcon from "../assets/img/download (1).png"; 
 
 const Navber = () => {
@@ -163,7 +163,7 @@ const Navber = () => {
 
       {/* 🔸 Category Bar */}
       <div className="bg-[#1D1D1D] mt-10">
-        <div className="container mx-auto flex flex-wrap justify-evenly mt-[40px] mb-[56px] pt-[22px] pb-[22px] instrument-sans">
+        {/* <div className="container mx-auto flex flex-wrap justify-evenly mt-[40px] mb-[56px] pt-[22px] pb-[22px] instrument-sans">
           {[
             "Shirts",
             "T-Shirts",
@@ -182,7 +182,7 @@ const Navber = () => {
               <img src={img} alt="" />
             </React.Fragment>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

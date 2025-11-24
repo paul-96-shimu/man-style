@@ -36,6 +36,7 @@ import OrderDetails from "../components/DashBoard/OrderDetails";
 import RoleBaseprofile from "../components/Profile/RoleBaseprofile";
 import ChangePassword from "../components/DashBoard/ChangePassword";
 import Address from "../components/DashBoard/Address";
+import AddProduct from "../components/DashBoard/AddProduct";
 
 
 
@@ -189,6 +190,15 @@ export const router = createBrowserRouter([
         path: 'approved',
 
         element: <AdminRoute><ApproveProduct></ApproveProduct></AdminRoute>
+
+      },
+
+       {
+        path: 'addproduct',
+
+        element: <AdminRoute>
+        <AddProduct></AddProduct>
+        </AdminRoute>
 
       },
 
