@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Navbar */}
-    <Navber></Navber>
+      <Navber></Navber>
 
       {/* Drawer */}
       <div className="drawer lg:drawer-open flex-1">
@@ -48,7 +48,8 @@ const Dashboard = () => {
                 <li><Link to="/dashboard/user">All Users</Link></li>
                 <li><Link to="/dashboard/pending">Pending Product</Link></li>
                 <li><Link to="/dashboard/approved">Approved Product</Link></li>
-                    <li><Link to="/dashboard/addproduct">Add product</Link></li>
+                <li><Link to="/dashboard/addproduct">Add product</Link></li>
+                  <li><Link to="/dashboard/totalproduct">Total Product</Link></li>
                 <li><Link to="/dashboard/make-admin">Make Admin</Link></li>
                 <li><Link to="/dashboard/profile">Eidit Profile</Link></li>
               </>
@@ -58,7 +59,7 @@ const Dashboard = () => {
               <>
                 <li><Link to="/dashboard/orders">My Orders</Link></li>
                 <li><Link to="/dashboard/payments">My Payments</Link></li>
-                 <li><Link to="/dashboard/address">Address</Link></li>
+                <li><Link to="/dashboard/address">Address</Link></li>
                 <li><Link to="/dashboard/password">Change Password</Link></li>
                 <li><Link to="/dashboard/profile">Eidit Profile</Link></li>
               </>

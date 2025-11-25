@@ -37,6 +37,7 @@ import RoleBaseprofile from "../components/Profile/RoleBaseprofile";
 import ChangePassword from "../components/DashBoard/ChangePassword";
 import Address from "../components/DashBoard/Address";
 import AddProduct from "../components/DashBoard/AddProduct";
+import TotalProduct from "../components/DashBoard/TotalProduct";
 
 
 
@@ -187,9 +188,12 @@ export const router = createBrowserRouter([
 
 
       {
-        path: 'approved',
+        path: 'totalproduct',
 
-        element: <AdminRoute><ApproveProduct></ApproveProduct></AdminRoute>
+        element: <AdminRoute>
+          <TotalProduct></TotalProduct>
+       
+        </AdminRoute>
 
       },
 
@@ -201,6 +205,20 @@ export const router = createBrowserRouter([
         </AdminRoute>
 
       },
+
+
+
+{
+        path: 'approved',
+
+        element: <AdminRoute>
+          <ApproveProduct>
+          </ApproveProduct>
+          </AdminRoute>
+
+      },
+
+
 
 
       {
