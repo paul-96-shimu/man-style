@@ -49,7 +49,8 @@ const Dashboard = () => {
                 <li><Link to="/dashboard/pending">Pending Product</Link></li>
                 <li><Link to="/dashboard/approved">Approved Product</Link></li>
                 <li><Link to="/dashboard/addproduct">Add product</Link></li>
-                  <li><Link to="/dashboard/totalproduct">Total Product</Link></li>
+                <li><Link to="/dashboard/totalproduct">Total Product</Link></li>
+                <li><Link to="/dashboard/payment">Payment</Link></li>
                 <li><Link to="/dashboard/make-admin">Make Admin</Link></li>
                 <li><Link to="/dashboard/profile">Eidit Profile</Link></li>
               </>

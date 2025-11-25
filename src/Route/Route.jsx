@@ -38,6 +38,7 @@ import ChangePassword from "../components/DashBoard/ChangePassword";
 import Address from "../components/DashBoard/Address";
 import AddProduct from "../components/DashBoard/AddProduct";
 import TotalProduct from "../components/DashBoard/TotalProduct";
+import Payment from "../components/DashBoard/Payment";
 
 
 
@@ -187,34 +188,47 @@ export const router = createBrowserRouter([
       },
 
 
+
+
+      {
+        path: 'payment',
+
+
+        element: <AdminRoute>
+          <Payment></Payment>
+        </AdminRoute>
+
+      },
+
+
       {
         path: 'totalproduct',
 
         element: <AdminRoute>
           <TotalProduct></TotalProduct>
-       
+
         </AdminRoute>
 
       },
 
-       {
+      {
         path: 'addproduct',
 
         element: <AdminRoute>
-        <AddProduct></AddProduct>
+          <AddProduct></AddProduct>
         </AdminRoute>
 
       },
 
 
 
-{
+      {
         path: 'approved',
 
         element: <AdminRoute>
           <ApproveProduct>
           </ApproveProduct>
-          </AdminRoute>
+        </AdminRoute>
 
       },
 
