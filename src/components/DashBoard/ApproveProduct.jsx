@@ -7,7 +7,7 @@ const ApproveProduct = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/orders/approved")
+      .get("https://y-three-blond.vercel.app/orders/approved")
       .then((res) => setOrders(res.data));
   }, []);
 

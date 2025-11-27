@@ -6,7 +6,7 @@ const TopPicks = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/manproducts')
+    fetch('https://y-three-blond.vercel.app/manproducts')
       .then((res) => res.json())
       .then((data) => setProduct(data))
       .catch((err) => console.log(err));

@@ -9,7 +9,7 @@ const MakeAdmin = () => {
   // 🔹 Fetch users (with optional search)
   const fetchUsers = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/users?search=${search}`);
+      const res = await axios.get(`https://y-three-blond.vercel.app/users?search=${search}`);
       setUsers(res.data);
     } catch (error) {
       console.error("❌ Error fetching users:", error);
@@ -23,7 +23,7 @@ const MakeAdmin = () => {
   // 🔹 Make Admin function
   const handleMakeAdmin = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:3000/users/make-admin/${id}`);
+      const res = await axios.put(`https://y-three-blond.vercel.app/users/make-admin/${id}`);
       if (res.data.success) {
         toast.success("User promoted to Admin ✅");
         fetchUsers();
@@ -39,7 +39,7 @@ const MakeAdmin = () => {
   // 🔹 Remove Admin function
   const handleRemoveAdmin = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:3000/users/remove-admin/${id}`);
+      const res = await axios.put(`https://y-three-blond.vercel.app/users/remove-admin/${id}`);
       if (res.data.success) {
         toast.warn("Admin role removed ❌");
         fetchUsers();

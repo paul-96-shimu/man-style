@@ -5,7 +5,7 @@ const Payment = () => {
     const [summary, setSummary] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/today-summary")
+        axios.get("https://y-three-blond.vercel.app/today-summary")
             .then(res => setSummary(res.data))
             .catch(error => console.error(error));
     }, []);

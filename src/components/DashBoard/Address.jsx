@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthContext/Authcontex";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://y-three-blond.vercel.app/";
 
 const Address = () => {
   const { user } = useContext(AuthContext);

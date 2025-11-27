@@ -10,7 +10,7 @@ const Updated = () => {
   // Fetch the selected order data
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/orders/single/${id}`)
+      .get(`https://y-three-blond.vercel.app/orders/single/${id}`)
       .then((res) => {
         setOrder(res.data);
         setLoading(false);
@@ -33,7 +33,7 @@ const Updated = () => {
     const { _id, ...updateData } = order;
 
     try {
-      await axios.put(`http://localhost:3000/orders/update/${id}`, updateData);
+      await axios.put(`https://y-three-blond.vercel.app/orders/update/${id}`, updateData);
       alert("Order updated successfully!");
     } catch (error) {
       console.error(error);

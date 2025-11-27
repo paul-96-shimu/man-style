@@ -17,7 +17,7 @@ const Review = () => {
   const fetchReviews = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:3000/reviews/${productId}`);
+      const res = await axios.get(`https://y-three-blond.vercel.app/reviews/${productId}`);
       setReviews(res.data);
     } catch (error) {
       console.error("Error fetching reviews:", error);
@@ -54,7 +54,7 @@ const Review = () => {
 
     setSubmitting(true);
     try {
-      const res = await axios.post("http://localhost:3000/reviews", newReview);
+      const res = await axios.post("https://y-three-blond.vercel.app/reviews", newReview);
 
       if (res.status === 201 || res.data.success) {
         setReviewText("");

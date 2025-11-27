@@ -40,12 +40,12 @@ const handleBuyNow = () => {
 
   useEffect(() => {
     // ✅ fetch single product
-    fetch(`http://localhost:3000/manproducts/${id}`)
+    fetch(`https://y-three-blond.vercel.app/manproducts/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data));
 
     // ✅ fetch related products
-    fetch(`http://localhost:3000/manproducts/${id}/related`)
+    fetch(`https://y-three-blond.vercel.app/manproducts/${id}/related`)
       .then(res => res.json())
       .then(data => setRelated(data));
   }, [id]);

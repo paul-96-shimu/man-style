@@ -12,7 +12,7 @@ const MyPayments = () => {
     if (user?.email) {
       // 🔹 Fetch payments from backend filtered by user email
       axios
-        .get(`http://localhost:3000/payments?email=${user.email}`)
+        .get(`https://y-three-blond.vercel.app/payments?email=${user.email}`)
         .then((res) => {
           setPayments(res.data);
         })

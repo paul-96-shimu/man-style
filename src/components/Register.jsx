@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 
-const API_BASE = "http://localhost:3000"; // তোমার backend URL
+const API_BASE = "https://y-three-blond.vercel.app/"; // তোমার backend URL
 
 const Register = () => {
     const { createUser, signInGoogle } = useContext(AuthContext);

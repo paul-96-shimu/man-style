@@ -6,7 +6,7 @@ const RelatedProducts = () => {
   const [related, setRelated] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/manproducts?category=${category}`)
+    fetch(`https://y-three-blond.vercel.app//manproducts?category=${category}`)
       .then((res) => res.json())
       .then((data) => setRelated(data))
       .catch((err) => console.log(err));

@@ -21,7 +21,7 @@ const PaymentForm = ({ product }) => {
   useEffect(() => {
     if (product?.price) {
       axios
-        .post("http://localhost:3000/create-payment-intent", { price: product.price })
+        .post("https://y-three-blond.vercel.app//create-payment-intent", { price: product.price })
         .then((res) => {
           if (res.data?.clientSecret) {
             setClientSecret(res.data.clientSecret);
@@ -100,7 +100,7 @@ const PaymentForm = ({ product }) => {
           date: new Date(),
         };
 
-        await axios.post("http://localhost:3000/payments", paymentInfo);
+        await axios.post("https://y-three-blond.vercel.app//payments", paymentInfo);
 
         // Step 4️⃣: Redirect to My Orders page
         setTimeout(() => {

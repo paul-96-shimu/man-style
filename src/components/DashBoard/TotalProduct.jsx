@@ -6,7 +6,7 @@ const TotalProduct = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/products")
+    axios.get("https://y-three-blond.vercel.app/products")
       .then(res => {
         setProducts(res.data);
         setLoading(false);

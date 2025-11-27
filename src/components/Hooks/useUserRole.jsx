@@ -19,7 +19,7 @@ const useUserRole = () => {
         setRoleLoading(true);
 
         // Backend এ নিশ্চিত হয়ে GET করা
-        const res = await axios.get(`http://localhost:3000/users/${user.email}`);
+        const res = await axios.get(`https://y-three-blond.vercel.app/users/${user.email}`);
         
         if (res.data && res.data.role) {
           setRole(res.data.role);

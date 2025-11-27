@@ -13,7 +13,7 @@ const UserProfile = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/users/${user.email}`)
+        .get(`https://y-three-blond.vercel.app/users/${user.email}`)
         .then((res) => {
           const data = res.data.user || res.data;
           setUserData(data);
@@ -39,7 +39,7 @@ const UserProfile = () => {
     };
 
     try {
-      await axios.put(`http://localhost:3000/users/${user.email}`, updatedUser);
+      await axios.put(`https://y-three-blond.vercel.app/users/${user.email}`, updatedUser);
 
       Swal.fire("Success", "Profile updated successfully!", "success");
       setEditMode(false); // close edit mode

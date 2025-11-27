@@ -6,7 +6,7 @@ const PendingProduct = () => {
 
   const fetchPendingOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/orders/pending");
+      const res = await axios.get("https://y-three-blond.vercel.app/orders/pending");
       console.log("🔹 Pending Orders from API:", res.data);
       setOrders(res.data);
     } catch (error) {
@@ -20,7 +20,7 @@ const PendingProduct = () => {
 
   const handleApprove = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/orders/approve/${id}`);
+      await axios.put(`https://y-three-blond.vercel.app/orders/approve/${id}`);
       fetchPendingOrders();
     } catch (error) {
       console.error("❌ Failed to approve order:", error);
@@ -29,7 +29,7 @@ const PendingProduct = () => {
 
   const handleReject = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/orders/reject/${id}`);
+      await axios.put(`https://y-three-blond.vercel.app/orders/reject/${id}`);
       fetchPendingOrders();
     } catch (error) {
       console.error("❌ Failed to reject order:", error);

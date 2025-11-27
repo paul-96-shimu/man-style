@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE = "http://localhost:3000"; // শুধুমাত্র backend base URL
+const API_BASE = "https://y-three-blond.vercel.app/"; // শুধুমাত্র backend base URL
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);

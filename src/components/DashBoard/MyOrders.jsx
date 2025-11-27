@@ -11,7 +11,7 @@ const MyOrders = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/orders/${user.email}`)
+        .get(`https://y-three-blond.vercel.app/orders/${user.email}`)
         .then((res) => {
           setOrders(res.data);
           setLoading(false);
@@ -28,7 +28,7 @@ const MyOrders = () => {
   //   if (!confirmDelete) return;
 
   //   try {
-  //     await axios.delete(`http://localhost:3000/orders/delete/${id}`);
+  //     await axios.delete(`https://y-three-blond.vercel.app//orders/delete/${id}`);
   //     setOrders(orders.filter((order) => order._id !== id));
   //     alert("Order deleted successfully!");
   //   } catch (error) {

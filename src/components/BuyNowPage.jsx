@@ -25,7 +25,7 @@ const BuyNowPage = () => {
   useEffect(() => {
     if (user?.email) {
       // Fetch user's addresses
-      axios.get(`http://localhost:3000/addresses/${user.email}`)
+      axios.get(`https://y-three-blond.vercel.app//addresses/${user.email}`)
         .then(res => {
           setAddresses(res.data);
           if (res.data.length) setSelectedAddressId(res.data[0]._id); // default first address
@@ -90,7 +90,7 @@ const BuyNowPage = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:3000/orders", orderData);
+      const res = await axios.post("https://y-three-blond.vercel.app/orders", orderData);
 
       if (res.data?.success) {
         toast.success("✅ Order placed successfully!");

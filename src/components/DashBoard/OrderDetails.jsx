@@ -8,7 +8,7 @@ const OrderDetails = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/orders/details/${id}`)
+            .get(`https://y-three-blond.vercel.app/orders/details/${id}`)
             .then((res) => setOrder(res.data.order))
             .catch((err) => console.log(err));
     }, [id]);

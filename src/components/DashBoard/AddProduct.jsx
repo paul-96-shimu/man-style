@@ -44,7 +44,7 @@ const AddProduct = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:3000/products", payload);
+      const res = await axios.post("https://y-three-blond.vercel.app/products", payload);
 
       if (res.data.insertedId) {
         Swal.fire({
